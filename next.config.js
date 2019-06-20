@@ -11,4 +11,17 @@ function webpack(config, options) {
   return config;
 }
 
-module.exports = withTypescript(withSass({ webpack }));
+const cssModulesOptions = {
+  cssModules: true,
+  cssLoaderOptions: {
+    importLoaders: 1,
+    localIdentName: '[local]___[hash:base64:5]',
+  },
+};
+
+const nextOptions = {
+  webpack,
+  ...cssModulesOptions,
+};
+
+module.exports = withTypescript(withSass(nextOptions));

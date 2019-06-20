@@ -1,0 +1,14 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.4rem;
+}
+
+.Home {
+    grid-template:
+        "aaa bbb ccc" auto
+        "ddd eee fff" auto /
+        auto auto auto;
+}
