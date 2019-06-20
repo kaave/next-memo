@@ -20,6 +20,15 @@
     "watch": "jest --watchAll",
     "typecheck": "tsc --noEmit -p tsconfig.server.json"
   },
+  "browserslist": [
+    "> 0.5% in jp",
+    "node >= 10",
+    "not ios < 10.3",
+    "not android < 5",
+    "not safari < 10.1",
+    "not chrome 49",
+    "not dead"
+  ],
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
