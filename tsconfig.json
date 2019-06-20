@@ -16,5 +16,6 @@
         "baseUrl": ".",
         "typeRoots": ["./node_modules/@types"],
         "lib": ["dom", "es2015", "es2016"]
-    }
+    },
+    "exclude": ["babel.config.js", "lint-staged.config.js", "next.config.js"]
 }
