@@ -1,6 +1,8 @@
 import React from 'react';
 import App, { Container, NextAppContext } from 'next/app';
 
+import '../src/styles/_global.scss';
+
 class ModifiedApp extends App {
   static async getInitialProps({ Component, ctx }: NextAppContext) {
     let pageProps = {};

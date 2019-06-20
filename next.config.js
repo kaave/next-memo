@@ -2,6 +2,7 @@
 const withTypescript = require('@zeit/next-typescript');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const withSass = require('@zeit/next-sass');
+const packageImporter = require('node-sass-package-importer');
 
 function webpack(config, options) {
   if (options.isServer) {
@@ -17,6 +18,7 @@ const cssModulesOptions = {
     importLoaders: 1,
     localIdentName: '[local]___[hash:base64:5]',
   },
+  importer: packageImporter(),
 };
 
 const nextOptions = {
