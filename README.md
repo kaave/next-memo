@@ -2,16 +2,20 @@
 
 - [x] TypeScript
 - [x] SCSS
-- [ ] PostCSS plugins
+- [x] PostCSS plugins
 - [x] ESLint
 - [x] stylelint
 - [x] prettier
 - [x] husky + lint-staged
-- [ ] CSS Reset
-- [ ] CSS Modules
+- [x] CSS Reset
+- [x] CSS Modules
+- [ ] more strictly tsconfig
 - [ ] File structure
+  - [ ] layouts
+  - [ ] components
 - [ ] PWA
 - [ ] sitemap
 - [ ] redux
 - [ ] redux-saga or redux-thunk or redux-observable
 - [ ] test
+- [ ] express
