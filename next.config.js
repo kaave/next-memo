@@ -1,4 +1,3 @@
-/* eslint-disable import/no-extraneous-dependencies */
 const withTypescript = require('@zeit/next-typescript');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const withSass = require('@zeit/next-sass');

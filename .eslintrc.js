@@ -33,19 +33,50 @@ module.exports = {
       // use <root>/tsconfig.json
       typescript: {},
       webpack: {
-        config: './tools/webpack/server/production.js',
+        config: './tsconfig.server.js',
+      },
+      node: {
+        extensions: ['.js', '.ts', '.jsx', '.tsx', '.json'],
       },
     },
     // importの際にあーだこーだ言われたくないものを
     'import/core-modules': ['enzyme', '@storybook/react'],
+    'import/extensions': ['.js', '.ts', '.mjs', '.jsx', '.tsx'],
   },
   rules: {
+    // クラスメンバーは改行で区切るが、1行の場合はスルー
+    'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
     // default exportを押す 無効化
     'import/prefer-default-export': 'off',
     // ~が機能しないため外す
     'import/no-unresolved': 'off',
-    // クラスメンバーは改行で区切るが、1行の場合はスルー
-    'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
+    // import演算子に使用する拡張子をちゃんと明示的にする js系以外は強要
+    'import/extensions': [
+      'error',
+      'ignorePackages',
+      {
+        js: 'never',
+        mjs: 'never',
+        jsx: 'never',
+        ts: 'never',
+        tsx: 'never',
+      },
+    ],
+    // いくつかの設定ファイルはdevDependenciesをimportしても警告しない
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        devDependencies: [
+          'test/**',
+          '**/__tests__/**',
+          '**/__mocks__/**',
+          '**/*{.,_}{test,spec}.{js,jsx,ts,tsx}',
+          '**/*.config.js',
+          '**/*.config.*.js',
+        ],
+        optionalDependencies: false,
+      },
+    ],
 
     /*
      * react
@@ -58,6 +89,7 @@ module.exports = {
     'react/destructuring-assignment': ['error', 'always', { ignoreClassFields: true }],
     // メソッドやらプロパティやらの順序を縛る 無効化 いろいろめんどくさい
     'react/sort-comp': 'off',
+    'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
 
     /*
      * typescript

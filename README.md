@@ -11,8 +11,8 @@
 - [x] CSS Modules
 - [ ] more strictly tsconfig
 - [ ] File structure
-  - [ ] layouts
-  - [ ] components
+  - [x] layouts
+  - [x] components
 - [ ] PWA
 - [ ] sitemap
 - [ ] redux
