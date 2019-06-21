@@ -1,5 +1,5 @@
 {
-    "extends": "./tsconfig.json",
+    "extends": "./tsconfig.production",
     "compilerOptions": {
         "module": "commonjs",
         "outDir": ".build",
