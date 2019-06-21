@@ -1,5 +1,5 @@
-import * as express from 'express';
-import * as next from 'next';
+import express from 'express';
+import next from 'next';
 
 const port = process.env.PORT || 3000;
 const app = next({ dev: process.env.NODE_ENV !== 'production' });
