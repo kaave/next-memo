@@ -1,5 +1,8 @@
 import express from 'express';
 import next from 'next';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const port = process.env.PORT || 3000;
 const app = next({ dev: process.env.NODE_ENV !== 'production' });

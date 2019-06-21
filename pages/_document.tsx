@@ -17,6 +17,7 @@ class ModifiedDocument extends Document {
           <script src={`https://polyfill.io/v3/polyfill.min.js?features=${configs.polyfills}&flags=gated`} defer />
         </Head>
         <body>
+          Running port at: {process.env.PORT}
           <Main />
           <NextScript />
         </body>
