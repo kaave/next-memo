@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "nodemon --exec ts-node --project tsconfig.server.json server",
     "build": "next build && tsc --project tsconfig.server.json",
+    "analyze": "BUNDLE_ANALYZE=both next build",
     "start": "NODE_ENV=production node .build/server",
     "lint": "run-p lint:*",
     "lint:style": "stylelint '**/*.scss'",
@@ -35,6 +36,7 @@
     }
   },
   "dependencies": {
+    "@zeit/next-bundle-analyzer": "^0.1.2",
     "@zeit/next-sass": "^1.0.1",
     "@zeit/next-typescript": "^1.1.1",
     "express": "^4.17.1",

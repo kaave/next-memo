@@ -5,6 +5,7 @@ const withTypescript = require('@zeit/next-typescript');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const withSass = require('@zeit/next-sass');
 const packageImporter = require('node-sass-package-importer');
+const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
 
 function webpack(config, options) {
   if (options.isServer) {
@@ -29,9 +30,25 @@ const cssModulesOptions = {
   importer: packageImporter(),
 };
 
+const analyzerOptions = {
+  analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
+  analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
+  bundleAnalyzerConfig: {
+    server: {
+      analyzerMode: 'static',
+      reportFilename: './bundles/server.html',
+    },
+    browser: {
+      analyzerMode: 'static',
+      reportFilename: './bundles/client.html',
+    },
+  },
+};
+
 const nextOptions = {
   webpack,
   ...cssModulesOptions,
+  ...analyzerOptions,
 };
 
-module.exports = withTypescript(withSass(nextOptions));
+module.exports = withBundleAnalyzer(withTypescript(withSass(nextOptions)));
