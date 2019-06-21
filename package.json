@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "nodemon --exec ts-node --project tsconfig.server.json server",
     "build": "next build && tsc --project tsconfig.server.json",
-    "start": "NODE_ENV=production node .build/server",
+    "start": "NODE_ENV=production node .build",
     "lint": "run-p lint:*",
     "lint:style": "stylelint '**/*.scss'",
     "lint:script": "eslint '**/*.{js,ts,tsx}'",
@@ -39,6 +39,7 @@
     "@zeit/next-typescript": "^1.1.1",
     "express": "^4.17.1",
     "next": "^8.1.0",
+    "next-offline": "^4.0.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "sanitize.css": "^10.0.0"

@@ -1,3 +1,4 @@
+const withOffline = require('next-offline');
 const withTypescript = require('@zeit/next-typescript');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const withSass = require('@zeit/next-sass');
@@ -20,9 +21,20 @@ const cssModulesOptions = {
   importer: packageImporter(),
 };
 
+const workboxOptions = {
+  registerSwPrefix: '/_next/static',
+  workboxOpts: {
+    swDest: 'static/service-worker.js',
+  },
+};
+
 const nextOptions = {
   webpack,
   ...cssModulesOptions,
+  ...workboxOptions,
 };
 
-module.exports = withTypescript(withSass(nextOptions));
+module.exports = [withOffline, withTypescript, withSass].reduce(
+  (tmp, fn) => (tmp == null ? fn(nextOptions) : fn(tmp)),
+  null,
+);
