@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "nodemon --exec ts-node --project tsconfig.server.json server",
     "build": "next build && tsc --project tsconfig.server.json",
+    "export": "next export",
     "analyze": "BUNDLE_ANALYZE=both next build",
     "start": "NODE_ENV=production node .build/server",
     "lint": "run-p lint:*",

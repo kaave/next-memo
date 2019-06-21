@@ -160,4 +160,5 @@ $RECYCLE.BIN/
 
 ### Manual ###
 .build
+out
 .vscode
