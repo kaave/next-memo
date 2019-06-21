@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 
-import DefaultLayout from '../src/layouts/default';
+import DefaultLayout from '~/layouts/default';
 import styles from './index.scss';
 
 const HomePage: React.FC = () => (

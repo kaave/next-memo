@@ -1,7 +1,7 @@
-import * as React from 'react';
+import React from 'react';
 import Document, { Html, Head, Main, NextScript, NextDocumentContext } from 'next/document';
 
-import * as configs from '../utils/configs';
+import * as configs from '@/utils/configs';
 
 class ModifiedDocument extends Document {
   static async getInitialProps(ctx: NextDocumentContext) {
