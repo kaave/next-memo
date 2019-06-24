@@ -1,30 +1,68 @@
 import React from 'react';
-import { NextFC } from 'next';
+import { connect } from 'react-redux';
+import { NextContext } from 'next';
 import Link from 'next/link';
 
+import { RootState, Dispatch, actions } from '~/redux';
 import DefaultLayout from '~/layouts/default';
 import styles from './index.scss';
 
 export type Props = {
-  count: number;
+  localCount: number;
 };
+
+export type State = {};
 
 const wait = (msec: number) => new Promise(resolve => setTimeout(resolve, msec));
 
-const HomePage: NextFC<Props> = ({ count = 0 }) => (
-  <DefaultLayout>
-    <main id="main" className={styles.Home}>
-      <h1>Hello, World! {count}</h1>
-      <Link href="/second-page">
-        <button type="button">Goto Second Page</button>
-      </Link>
-    </main>
-  </DefaultLayout>
-);
+const mapStateToProps = (state: RootState) => ({ reduxCount: state.counter.count });
+const mapDispatchToProps = (dispatch: any, props: Props) => ({
+  add: (n: number) => dispatch(actions.counter.add({ count: n })),
+});
 
-HomePage.getInitialProps = async context => {
-  wait(1000);
-  return { count: 10 };
-};
+type WithReduxProps = Props & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
-export default HomePage;
+// eslint-disable-next-line react/prefer-stateless-function
+class HomePage extends React.Component<WithReduxProps, State> {
+  intervalTimer: NodeJS.Timeout | null = null;
+  state = {};
+
+  static getInitialProps = async (context: NextContext): Promise<Props> => {
+    wait(1000);
+    return { localCount: 10 };
+  };
+
+  componentDidMount() {
+    const { add } = this.props;
+    this.intervalTimer = setInterval(() => add(1), 1000);
+  }
+
+  componentWillUnmount() {
+    if (this.intervalTimer) {
+      clearInterval(this.intervalTimer);
+      this.intervalTimer = null;
+    }
+  }
+
+  render() {
+    const { localCount, reduxCount } = this.props;
+
+    return (
+      <DefaultLayout>
+        <main id="main" className={styles.Home}>
+          <h1>
+            Hello, World! localCount: {localCount} ReduxCount: {reduxCount}
+          </h1>
+          <Link href="/second-page">
+            <button type="button">Goto Second Page</button>
+          </Link>
+        </main>
+      </DefaultLayout>
+    );
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(HomePage);

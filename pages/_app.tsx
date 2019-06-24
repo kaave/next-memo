@@ -1,9 +1,16 @@
 import React from 'react';
 import App, { Container, NextAppContext } from 'next/app';
+import { Provider } from 'react-redux';
+import withRedux from 'next-redux-wrapper';
 
 import '~/styles/_global.scss';
+import { Store } from '~/redux';
+import { configureStore } from '~/redux/store';
 
-class ModifiedApp extends App {
+type Props = { store: Store };
+type State = {};
+
+class ModifiedApp extends App<Props, State> {
   static async getInitialProps({ Component, ctx }: NextAppContext) {
     let pageProps = {};
 
@@ -15,14 +22,16 @@ class ModifiedApp extends App {
   }
 
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, store } = this.props;
 
     return (
       <Container>
-        <Component {...pageProps} />
+        <Provider store={store}>
+          <Component {...pageProps} />
+        </Provider>
       </Container>
     );
   }
 }
 
-export default ModifiedApp;
+export default withRedux(configureStore)(ModifiedApp);
