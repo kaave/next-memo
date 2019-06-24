@@ -1,4 +1,5 @@
 import { combineReducers, Store, Dispatch } from 'redux';
+import { all, call } from 'redux-saga/effects';
 
 import * as Counter from './counter';
 
@@ -12,11 +13,6 @@ export type Store = Store<RootState, Action>;
 export const initialState = { counter: Counter.initialState };
 export const actions = { counter: Counter.actions };
 export const reducer = combineReducers<RootState>({ counter: Counter.reducer });
-// export const saga = { ...Clock.saga };
-// export function* saga() {
-//   yield all([...Counts.map(method => method())]);
-// }
-
-// export function* rootSaga() {
-//   yield all([call(runClockSaga), takeLatest(actionTypes.LOAD_DATA, loadDataSaga)]);
-// }
+export function* saga() {
+  yield all([call(Counter.saga)]);
+}

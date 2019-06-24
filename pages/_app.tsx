@@ -2,6 +2,7 @@ import React from 'react';
 import App, { Container, NextAppContext } from 'next/app';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
+import withReduxSaga from 'next-redux-saga';
 
 import '~/styles/_global.scss';
 import { Store } from '~/redux';
@@ -34,4 +35,4 @@ class ModifiedApp extends App<Props, State> {
   }
 }
 
-export default withRedux(configureStore)(ModifiedApp);
+export default withRedux(configureStore)(withReduxSaga(ModifiedApp));

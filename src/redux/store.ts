@@ -1,7 +1,8 @@
 import { applyMiddleware, createStore, Middleware, Store } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
+import createSagaMiddleware, { Task } from 'redux-saga';
 
-import { reducer as rootReducer, initialState } from '.';
+import { reducer as rootReducer, initialState, saga } from '.';
 
 const bindMiddleware = (middlewares: Middleware[]) => {
   if (process.env.NODE_ENV !== 'production') {
@@ -12,9 +13,11 @@ const bindMiddleware = (middlewares: Middleware[]) => {
 };
 
 export function configureStore(state = initialState) {
-  const bindedMiddleware = bindMiddleware([]);
-  const store: Store = {
+  const sagaMiddleware = createSagaMiddleware();
+  const bindedMiddleware = bindMiddleware([sagaMiddleware]);
+  const store: Store & { sagaTask: Task } = {
     ...createStore(rootReducer, state, bindedMiddleware),
+    sagaTask: sagaMiddleware.run(saga),
   };
 
   return store;

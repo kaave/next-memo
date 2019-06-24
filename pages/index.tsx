@@ -18,6 +18,8 @@ const wait = (msec: number) => new Promise(resolve => setTimeout(resolve, msec))
 const mapStateToProps = (state: RootState) => ({ reduxCount: state.counter.count });
 const mapDispatchToProps = (dispatch: any, props: Props) => ({
   add: (n: number) => dispatch(actions.counter.add({ count: n })),
+  asyncIncrement: (n?: number) =>
+    dispatch(actions.counter.asyncIncrement.request(n ? { count: n } : { count: 666, callingFailed: true })),
 });
 
 type WithReduxProps = Props & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
@@ -33,8 +35,10 @@ class HomePage extends React.Component<WithReduxProps, State> {
   };
 
   componentDidMount() {
-    const { add } = this.props;
+    const { add, asyncIncrement } = this.props;
     this.intervalTimer = setInterval(() => add(1), 1000);
+    asyncIncrement(100);
+    asyncIncrement();
   }
 
   componentWillUnmount() {
