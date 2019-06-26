@@ -1,5 +1,9 @@
 # next template
 
+## TODO
+
+### dev
+
 - [x] TypeScript
 - [x] SCSS
 - [x] PostCSS plugins
@@ -7,15 +11,25 @@
 - [x] stylelint
 - [x] prettier
 - [x] husky + lint-staged
-- [x] CSS Reset
 - [x] CSS Modules
-- [ ] more strictly tsconfig
-- [ ] File structure
+- [x] more strictly tsconfig
+- [ ] sitemap
+- [ ] test
+
+### frontend
+
+- [x] CSS Reset
+- [ ] PWA
+- File structure
   - [x] layouts
   - [x] components
-- [ ] PWA
-- [ ] sitemap
-- [ ] redux
-- [ ] redux-saga or redux-thunk or redux-observable
-- [ ] test
-- [ ] express
+- [x] redux
+- async redux middleware
+  - [x] redux-saga
+  - [ ] redux-thunk
+  - [ ] redux-observable
+
+### backend
+
+- [ ] with express
+- [ ] with firebase
