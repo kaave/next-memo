@@ -3,8 +3,6 @@
 const path = require('path');
 const dotenv = require('dotenv');
 const DotenvWebpack = require('dotenv-webpack');
-const withTypescript = require('@zeit/next-typescript');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const withSass = require('@zeit/next-sass');
 const packageImporter = require('node-sass-package-importer');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
@@ -12,10 +10,6 @@ const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
 dotenv.config();
 
 function webpack(config, options) {
-  if (options.isServer) {
-    config.plugins.push(new ForkTsCheckerWebpackPlugin());
-  }
-
   config.resolve.alias = {
     ...config.resolve.alias,
     '~': path.resolve('src'),
@@ -63,4 +57,4 @@ const nextOptions = {
   ...analyzerOptions,
 };
 
-module.exports = withBundleAnalyzer(withTypescript(withSass(nextOptions)));
+module.exports = withBundleAnalyzer(withSass(nextOptions));

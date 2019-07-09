@@ -1,10 +1,10 @@
 import React from 'react';
-import Document, { Html, Head, Main, NextScript, NextDocumentContext } from 'next/document';
+import Document, { Html, Head, Main, NextScript, DocumentContext } from 'next/document';
 
 import * as configs from '@/utils/configs';
 
 class ModifiedDocument extends Document {
-  static async getInitialProps(ctx: NextDocumentContext) {
+  static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
 
     return { ...initialProps };

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { NextContext } from 'next';
+import { NextPageContext } from 'next';
 import Link from 'next/link';
 
 import { RootState, Dispatch, actions } from '~/redux';
@@ -29,7 +29,7 @@ class HomePage extends React.Component<WithReduxProps, State> {
   intervalTimer: NodeJS.Timeout | null = null;
   state = {};
 
-  static getInitialProps = async (context: NextContext): Promise<Props> => {
+  static getInitialProps = async (context: NextPageContext): Promise<Props> => {
     wait(1000);
     return { localCount: 10 };
   };
