@@ -1,4 +1,5 @@
 import { ActionType } from 'typesafe-actions';
+import { Reducer } from 'redux';
 
 import * as actions from './actions';
 
@@ -7,7 +8,7 @@ export type State = { count: number; execRequest: boolean };
 
 export const initialState: State = { count: 0, execRequest: false };
 
-export const reducer = (state: State = initialState, action: Action): State => {
+export const reducer: Reducer<State, Action> = (state = initialState, action) => {
   switch (action.type) {
     case actions.types.RESET:
       return { ...state, count: 0 };

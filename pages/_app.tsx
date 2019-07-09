@@ -1,5 +1,5 @@
 import React from 'react';
-import App, { Container, NextAppContext } from 'next/app';
+import App, { Container, AppContext } from 'next/app';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import withReduxSaga from 'next-redux-saga';
@@ -12,7 +12,7 @@ type Props = { store: Store };
 type State = {};
 
 class ModifiedApp extends App<Props, State> {
-  static async getInitialProps({ Component, ctx }: NextAppContext) {
+  static async getInitialProps({ Component, ctx }: AppContext) {
     let pageProps = {};
 
     if (Component.getInitialProps) {
