@@ -2,12 +2,13 @@ module.exports = {
   extends: [
     'airbnb',
     'plugin:prettier/recommended',
+    'plugin:react-redux/recommended',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/eslint-recommended',
     'prettier/@typescript-eslint',
     'prettier/react',
   ],
-  plugins: ['@typescript-eslint'],
+  plugins: ['@typescript-eslint', 'react-hooks', 'react-redux'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     // https://github.com/typescript-eslint/typescript-eslint/blob/master/packages/parser/README.md
@@ -89,6 +90,8 @@ module.exports = {
     // メソッドやらプロパティやらの順序を縛る 無効化 いろいろめんどくさい
     'react/sort-comp': 'off',
     'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
+    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
+    'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
 
     /*
      * typescript
