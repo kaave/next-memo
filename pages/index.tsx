@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { NextPageContext } from 'next';
 import Link from 'next/link';
 
-import { RootState, Dispatch, actions } from '~/redux';
+import { RootState, actions } from '~/redux';
 import DefaultLayout from '~/layouts/default';
 import styles from './index.scss';
 
@@ -16,7 +16,7 @@ export type State = {};
 const wait = (msec: number) => new Promise(resolve => setTimeout(resolve, msec));
 
 const mapStateToProps = (state: RootState) => ({ reduxCount: state.counter.count });
-const mapDispatchToProps = (dispatch: any, props: Props) => ({
+const mapDispatchToProps = (dispatch: any /* , props: Props */) => ({
   add: (n: number) => dispatch(actions.counter.add({ count: n })),
   asyncIncrement: (n?: number) =>
     dispatch(actions.counter.asyncIncrement.request(n ? { count: n } : { count: 666, callingFailed: true })),
@@ -30,8 +30,13 @@ class HomePage extends React.Component<WithReduxProps, State> {
   state = {};
 
   static getInitialProps = async (context: NextPageContext): Promise<Props> => {
-    wait(1000);
-    return { localCount: 10 };
+    const isServer = context.req != null;
+    if (isServer) {
+      wait(1000);
+      return { localCount: 10 };
+    }
+
+    return { localCount: 0 };
   };
 
   componentDidMount() {

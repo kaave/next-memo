@@ -7,10 +7,12 @@
   "private": true,
   "scripts": {
     "dev": "nodemon --exec ts-node --project tsconfig.server.json server",
-    "build": "next build && tsc --project tsconfig.server.json",
+    "build": "run-p build:*",
+    "build:client": "next build",
+    "build:server": "tsc --project tsconfig.server.json",
     "export": "next export",
     "analyze": "BUNDLE_ANALYZE=both next build",
-    "start": "NODE_ENV=production node .build/server",
+    "start": "NODE_ENV=production node .build",
     "lint": "run-p lint:*",
     "lint:style": "stylelint '**/*.scss'",
     "lint:script": "eslint '**/*.{js,ts,tsx}'",
@@ -20,7 +22,9 @@
     "fix:json": "prettier --write '**/*.json'",
     "test": "jest",
     "watch": "jest --watchAll",
-    "typecheck": "tsc --noEmit -p tsconfig.server.json",
+    "typecheck": "run-p typecheck:*",
+    "typecheck:client": "tsc --noEmit -p tsconfig.production.json",
+    "typecheck:server": "tsc --noEmit -p tsconfig.server.json",
     "lint-staged": "lint-staged"
   },
   "browserslist": [
@@ -45,6 +49,7 @@
     "dotenv-webpack": "^1.7.0",
     "express": "^4.17.1",
     "next": "^9.0.0",
+    "next-offline": "^4.0.2",
     "next-redux-saga": "^4.0.2",
     "next-redux-wrapper": "^3.0.0-alpha.3",
     "react": "^16.8.6",

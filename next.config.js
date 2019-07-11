@@ -3,6 +3,7 @@
 const path = require('path');
 const dotenv = require('dotenv');
 const DotenvWebpack = require('dotenv-webpack');
+const withOffline = require('next-offline');
 const withSass = require('@zeit/next-sass');
 const packageImporter = require('node-sass-package-importer');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
@@ -51,10 +52,16 @@ const analyzerOptions = {
   },
 };
 
+const workboxOptions = {};
+
 const nextOptions = {
   webpack,
   ...cssModulesOptions,
   ...analyzerOptions,
+  ...workboxOptions,
 };
 
-module.exports = [withSass, withBundleAnalyzer].reduce((tmp, fn) => (tmp == null ? fn(nextOptions) : fn(tmp)), null);
+module.exports = [withSass, withOffline, withBundleAnalyzer].reduce(
+  (tmp, fn) => (tmp == null ? fn(nextOptions) : fn(tmp)),
+  null,
+);

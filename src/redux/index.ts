@@ -1,4 +1,4 @@
-import { combineReducers, Store, Dispatch, ReducersMapObject } from 'redux';
+import { combineReducers, Store, Dispatch } from 'redux';
 import { all, call } from 'redux-saga/effects';
 
 import * as Counter from './counter';

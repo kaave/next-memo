@@ -21,9 +21,9 @@
         "esModuleInterop": true,
         "preserveConstEnums": true,
         "forceConsistentCasingInFileNames": true,
-        "noEmit": true,
         "resolveJsonModule": true,
-        "isolatedModules": true
+        "isolatedModules": true,
+        "noEmit": true
     },
     "exclude": ["*.config.js"],
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
