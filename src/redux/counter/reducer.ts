@@ -1,5 +1,4 @@
-import { ActionType } from 'typesafe-actions';
-import { Reducer } from 'redux';
+import { ActionType, createReducer } from 'typesafe-actions';
 
 import * as actions from './actions';
 
@@ -8,23 +7,15 @@ export type State = { count: number; execRequest: boolean };
 
 export const initialState: State = { count: 0, execRequest: false };
 
-export const reducer: Reducer<State, Action> = (state = initialState, action) => {
-  switch (action.type) {
-    case actions.types.RESET:
-      return { ...state, count: 0 };
-    case actions.types.INCREMENT:
-      return { ...state, count: state.count + 1 };
-    case actions.types.DECREMENT:
-      return { ...state, count: state.count - 1 };
-    case actions.types.ADD:
-      return { ...state, count: state.count + action.payload.count };
-    case actions.types.ASYNC_INCREMENT_REQUEST:
-      return { ...state, execRequest: true };
-    case actions.types.ASYNC_INCREMENT_SUCCESSED:
-      return { ...state, count: state.count + action.payload.count, execRequest: false };
-    case actions.types.ASYNC_INCREMENT_FAILED:
-      return { ...state, execRequest: false };
-    default:
-      return state;
-  }
-};
+export const reducer = createReducer<State, Action>(initialState)
+  .handleAction(actions.reset, state => ({ ...state, count: 0 }))
+  .handleAction(actions.increment, state => ({ ...state, count: state.count + 1 }))
+  .handleAction(actions.decrement, state => ({ ...state, count: state.count - 1 }))
+  .handleAction(actions.add, (state, action) => ({ ...state, count: state.count + action.payload.count }))
+  .handleAction(actions.asyncIncrement.request, state => ({ ...state, execRequest: true }))
+  .handleAction(actions.asyncIncrement.success, (state, action) => ({
+    ...state,
+    count: state.count + action.payload.count,
+    execRequest: false,
+  }))
+  .handleAction(actions.asyncIncrement.failure, state => ({ ...state, execRequest: false }));
