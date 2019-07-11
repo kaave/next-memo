@@ -57,4 +57,4 @@ const nextOptions = {
   ...analyzerOptions,
 };
 
-module.exports = withBundleAnalyzer(withSass(nextOptions));
+module.exports = [withSass, withBundleAnalyzer].reduce((tmp, fn) => (tmp == null ? fn(nextOptions) : fn(tmp)), null);
