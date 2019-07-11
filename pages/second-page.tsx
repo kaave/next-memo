@@ -1,17 +1,50 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { NextPage, NextPageContext } from 'next';
 import Link from 'next/link';
 
+import { RootState, actions } from '~/redux';
 import DefaultLayout from '~/layouts/default';
 
-const SecondPage: React.FunctionComponent = () => (
-  <DefaultLayout>
-    <div>
-      <h1>Welcome To Second Page</h1>
-      <Link href="/">
-        <button type="button">Go Back</button>
-      </Link>
-    </div>
-  </DefaultLayout>
-);
+const wait = (msec: number) => new Promise(resolve => setTimeout(resolve, msec));
+
+export type Props = {
+  initialLocalCount: number;
+};
+
+const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
+  const [localCount, setLocalCount] = useState(initialLocalCount);
+  const dispatch = useDispatch();
+  const storeState = useSelector((state: RootState) => state);
+  const onAddClick = useCallback(() => dispatch(actions.counter.increment()), [dispatch]);
+
+  useEffect(() => {
+    const intervalID = setInterval(() => setLocalCount(state => state + 1), 1000);
+
+    return () => clearInterval(intervalID);
+  });
+
+  return (
+    <DefaultLayout>
+      <div>
+        <h1>
+          Welcome To Second Page. {localCount}, {storeState.counter.count}
+        </h1>
+        <button type="button" onClick={onAddClick}>
+          Add
+        </button>
+        <Link href="/">
+          <button type="button">Go Back</button>
+        </Link>
+      </div>
+    </DefaultLayout>
+  );
+};
+
+SecondPage.getInitialProps = async (context: NextPageContext): Promise<Props> => {
+  wait(1000);
+  console.log('SecondPage.getInitialProps', context.req && context.req.headers);
+  return { initialLocalCount: 1234 };
+};
 
 export default SecondPage;

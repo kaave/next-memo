@@ -10,9 +10,9 @@ export type RootState = {
   counter: Counter.State;
 };
 export type Store = Store<RootState, Action>;
-export const initialState = { counter: Counter.initialState };
+export const initialState: RootState = { counter: Counter.initialState };
 export const actions = { counter: Counter.actions };
-export const reducer = combineReducers<ReducersMapObject>({ counter: Counter.reducer });
+export const reducer = combineReducers({ counter: Counter.reducer });
 export function* saga() {
   yield all([call(Counter.saga)]);
 }
