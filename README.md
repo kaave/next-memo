@@ -19,7 +19,7 @@
 ### frontend
 
 - [x] CSS Reset
-- [ ] PWA
+- [x] PWA
 - File structure
   - [x] layouts
   - [x] components
