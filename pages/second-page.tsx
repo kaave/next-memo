@@ -42,9 +42,13 @@ const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
 };
 
 SecondPage.getInitialProps = async (context: NextPageContext): Promise<Props> => {
-  wait(1000);
-  console.log('SecondPage.getInitialProps', context.req && context.req.headers);
-  return { initialLocalCount: 1234 };
+  const isServer = context.req != null;
+  if (isServer) {
+    wait(1000);
+    return { initialLocalCount: 1234 };
+  }
+
+  return { initialLocalCount: 0 };
 };
 
 export default SecondPage;
