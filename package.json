@@ -20,7 +20,8 @@
     "fix:json": "prettier --write '**/*.json'",
     "test": "jest",
     "watch": "jest --watchAll",
-    "typecheck": "tsc --noEmit -p tsconfig.server.json"
+    "typecheck": "tsc --noEmit -p tsconfig.server.json",
+    "lint-staged": "lint-staged"
   },
   "browserslist": [
     "> 0.5% in jp",
@@ -33,7 +34,7 @@
   ],
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged"
+      "pre-commit": "run-p typecheck lint-staged"
     }
   },
   "dependencies": {

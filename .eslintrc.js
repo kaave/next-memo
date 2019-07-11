@@ -3,6 +3,7 @@ module.exports = {
     'airbnb',
     'plugin:prettier/recommended',
     'plugin:@typescript-eslint/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
     'prettier/@typescript-eslint',
     'prettier/react',
   ],
@@ -13,9 +14,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    // sourceType: 'module',
     project: './tsconfig.json',
-    extraFileExtensions: ['.vue'],
   },
   env: {
     browser: true,
