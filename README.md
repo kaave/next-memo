@@ -16,6 +16,12 @@
 - [ ] sitemap
 - [ ] test
 
+### both
+
+- [ ] simple auth
+- [ ] dynamic routing
+- [ ] dynamic import
+
 ### frontend
 
 - [x] CSS Reset
@@ -24,6 +30,7 @@
   - [x] layouts
   - [x] components
 - [x] redux
+  - [ ] with immer
 - async redux middleware
   - [x] redux-saga
   - [ ] redux-thunk
@@ -33,3 +40,5 @@
 
 - [ ] with express
 - [ ] with firebase
+  - [ ] hosting
+  - [ ] auth
