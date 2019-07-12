@@ -19,7 +19,7 @@
 ### both
 
 - [ ] simple auth
-- [ ] dynamic routing
+- [x] dynamic routing
 - [ ] dynamic import
 
 ### frontend
