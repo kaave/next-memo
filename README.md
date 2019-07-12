@@ -30,7 +30,7 @@
   - [x] layouts
   - [x] components
 - [x] redux
-  - [ ] with immer
+  - [x] with immer
 - async redux middleware
   - [x] redux-saga
   - [ ] redux-thunk
