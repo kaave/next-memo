@@ -65,6 +65,9 @@ class HomePage extends React.Component<WithReduxProps, State> {
           <Link href="/second-page">
             <button type="button">Goto Second Page</button>
           </Link>
+          <Link href="/dynamic">
+            <button type="button">Goto Dynamic Page</button>
+          </Link>
         </main>
       </DefaultLayout>
     );
