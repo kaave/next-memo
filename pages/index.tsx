@@ -62,6 +62,9 @@ class HomePage extends React.Component<WithReduxProps, State> {
           <h1>
             Hello, World! localCount: {localCount} ReduxCount: {reduxCount}
           </h1>
+          <Link href="/signin">
+            <button type="button">Goto Signin Page</button>
+          </Link>
           <Link href="/second-page">
             <button type="button">Goto Second Page</button>
           </Link>

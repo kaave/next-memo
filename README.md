@@ -18,7 +18,7 @@
 
 ### both
 
-- [ ] simple auth
+- [x] simple auth
 - [x] dynamic routing
 - [x] dynamic import
 
