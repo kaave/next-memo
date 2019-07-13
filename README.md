@@ -13,7 +13,7 @@
 - [x] husky + lint-staged
 - [x] CSS Modules
 - [x] more strictly tsconfig
-- [ ] sitemap
+- [x] sitemap
 - [ ] test
 
 ### both

@@ -67,6 +67,7 @@ module.exports = {
       'error',
       {
         devDependencies: [
+          'sitemap-generator.js',
           'test/**',
           '**/__tests__/**',
           '**/__mocks__/**',

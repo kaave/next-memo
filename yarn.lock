@@ -3326,7 +3326,7 @@ data-urls@^1.0.0:
     whatwg-mimetype "^2.2.0"
     whatwg-url "^7.0.0"
 
-date-fns@^1.27.2:
+date-fns@^1.27.2, date-fns@^1.30.1:
   version "1.30.1"
   resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-1.30.1.tgz#2e71bf0b119153dbb4cc4e88d9ea5acfb50dc05c"
   integrity sha512-hBSVCvSmWC+QypYObzwGOd9wqdDpOt+0wl0KbU+R+uuZBS1jN8VsD1ss3irQDknRj5NvxiTF6oj/nDRnN/UQNw==
@@ -7146,6 +7146,13 @@ next@^9.0.1:
     webpack-hot-middleware "2.25.0"
     webpack-sources "1.3.0"
     worker-farm "1.7.0"
+
+nextjs-sitemap-generator@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/nextjs-sitemap-generator/-/nextjs-sitemap-generator-0.0.6.tgz#eb91029ee2a0efaf620a3f626014976cf9fcc27a"
+  integrity sha512-e9yTVaEVjiWV9zZWRJko/xfgSOgtrVYfvYF2vVgi1b0b0tHl/em2zW/yUjqIWdXiDGRJwtFuCwdDCVNxG/w+2w==
+  dependencies:
+    date-fns "^1.30.1"
 
 nice-try@^1.0.4:
   version "1.0.5"
