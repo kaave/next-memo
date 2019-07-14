@@ -49,6 +49,8 @@ async function main() {
     res.sendFile(path.resolve(__dirname, '..', '.next', 'service-worker.js')),
   );
 
+  server.use(express.static(path.join(__dirname, '..', 'static')));
+
   // handle nextjs routing
   server.get('*', (req, res) => handle(req, res));
 
