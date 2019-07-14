@@ -14,6 +14,7 @@
 - [x] CSS Modules
 - [x] more strictly tsconfig
 - [x] sitemap
+  - [ ] create dynamic routes
 - [ ] test
 
 ### both
@@ -26,11 +27,14 @@
 
 - [x] CSS Reset
 - [x] PWA
+- [ ] meta tags
 - File structure
   - [x] layouts
   - [x] components
 - [x] redux
   - [x] with immer
+  - [ ] re-ducks pattern
+  - [ ] DDD and clean-architecture like architecture
 - async redux middleware
   - [x] redux-saga
   - [ ] redux-thunk
@@ -38,7 +42,7 @@
 
 ### backend
 
-- [ ] with express
+- [x] with express
 - [ ] with firebase
   - [ ] hosting
   - [ ] auth
