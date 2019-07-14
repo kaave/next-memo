@@ -15,11 +15,11 @@ export type State = {};
 
 const wait = (msec: number) => new Promise(resolve => setTimeout(resolve, msec));
 
-const mapStateToProps = (state: RootState) => ({ reduxCount: state.counter.count });
+const mapStateToProps = (state: RootState) => ({ reduxCount: state.domain.counter.count });
 const mapDispatchToProps = (dispatch: any /* , props: Props */) => ({
-  add: (n: number) => dispatch(actions.counter.add({ count: n })),
+  add: (n: number) => dispatch(actions.domain.counter.add({ count: n })),
   asyncIncrement: (n?: number) =>
-    dispatch(actions.counter.asyncIncrement.request(n ? { count: n } : { count: 666, callingFailed: true })),
+    dispatch(actions.domain.counter.asyncIncrement.request(n ? { count: n } : { count: 666, callingFailed: true })),
 });
 
 type WithReduxProps = Props & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;

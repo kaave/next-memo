@@ -1,6 +1,7 @@
 import { all, call, put, takeEvery } from 'redux-saga/effects';
 
-import { sagaTypes, AsyncIncrementRequestAction } from './actions';
+import { AsyncIncrementRequestAction } from './actions';
+import { sagaTypes } from './types';
 
 const wait = (msec: number) => new Promise(resolve => setTimeout(resolve, msec));
 const getDummyCount = async (n: number) => n * 10;

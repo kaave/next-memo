@@ -16,7 +16,7 @@ const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
   const [localCount, setLocalCount] = useState(initialLocalCount);
   const dispatch = useDispatch();
   const storeState = useSelector((state: RootState) => state);
-  const onAddClick = useCallback(() => dispatch(actions.counter.increment()), [dispatch]);
+  const onAddClick = useCallback(() => dispatch(actions.domain.counter.increment()), [dispatch]);
 
   useEffect(() => {
     const intervalID = setInterval(() => setLocalCount(state => state + 1), 1000);
@@ -28,7 +28,7 @@ const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
     <DefaultLayout>
       <div>
         <h1>
-          Welcome To Second Page. {localCount}, {storeState.counter.count}
+          Welcome To Second Page. {localCount}, {storeState.domain.counter.count}
         </h1>
         <button type="button" onClick={onAddClick}>
           Add

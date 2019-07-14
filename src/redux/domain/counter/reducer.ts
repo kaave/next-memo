@@ -1,11 +1,9 @@
 /* eslint-disable no-param-reassign */
-import { ActionType, createReducer } from 'typesafe-actions';
+import { createReducer } from 'typesafe-actions';
 import produce from 'immer';
 
-import * as actions from './actions';
-
-export type Action = ActionType<typeof actions>;
-export type State = { count: number; execRequest: boolean };
+import { actions, Action } from './actions';
+import { State } from './types';
 
 export const initialState: State = { count: 0, execRequest: false };
 
