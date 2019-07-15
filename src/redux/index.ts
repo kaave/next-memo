@@ -23,3 +23,6 @@ export const reducer = combineReducers({ domain: Domain.reducer, application: Ap
 export function* saga() {
   yield all([call(Domain.saga)]);
 }
+export const selectors = {
+  domain: Domain.selectors,
+};

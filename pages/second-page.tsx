@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NextPage, NextPageContext } from 'next';
 import Link from 'next/link';
 
-import { RootState, actions } from '~/redux';
+import { RootState, actions, selectors } from '~/redux';
 import DefaultLayout from '~/layouts/default';
 
 const wait = (msec: number) => new Promise(resolve => setTimeout(resolve, msec));
@@ -17,6 +17,7 @@ const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
   const dispatch = useDispatch();
   const storeState = useSelector((state: RootState) => state);
   const onAddClick = useCallback(() => dispatch(actions.domain.counter.increment()), [dispatch]);
+  const evenOrOdd = () => selectors.domain.counter.evenOrOdd(storeState.domain.counter);
 
   useEffect(() => {
     const intervalID = setInterval(() => setLocalCount(state => state + 1), 1000);
@@ -28,7 +29,7 @@ const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
     <DefaultLayout>
       <div>
         <h1>
-          Welcome To Second Page. {localCount}, {storeState.domain.counter.count}
+          Welcome To Second Page. {localCount}, {storeState.domain.counter.count}, {evenOrOdd()}
         </h1>
         <button type="button" onClick={onAddClick}>
           Add

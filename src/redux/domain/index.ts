@@ -15,3 +15,6 @@ export const reducer = combineReducers({ counter: Counter.reducer });
 export function* saga() {
   yield all([call(Counter.saga)]);
 }
+export const selectors = {
+  counter: Counter.selectors,
+};
