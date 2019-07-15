@@ -15,7 +15,7 @@
 - [x] more strictly tsconfig
 - [x] sitemap
   - [ ] create dynamic routes
-- [ ] test
+- [x] test
 
 ### both
 

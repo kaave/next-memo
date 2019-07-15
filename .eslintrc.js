@@ -91,9 +91,10 @@ module.exports = {
     'react/destructuring-assignment': ['error', 'always', { ignoreClassFields: true }],
     // メソッドやらプロパティやらの順序を縛る 無効化 いろいろめんどくさい
     'react/sort-comp': 'off',
-    'react/jsx-filename-extension': ['error', { extensions: ['.jsx', '.tsx'] }],
-    'react-hooks/rules-of-hooks': 'error', // Checks rules of Hooks
-    'react-hooks/exhaustive-deps': 'warn', // Checks effect dependencies
+    // Checks rules of Hooks
+    'react-hooks/rules-of-hooks': 'error',
+    // Checks effect dependencies
+    'react-hooks/exhaustive-deps': 'warn',
 
     /*
      * typescript
