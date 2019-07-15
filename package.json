@@ -6,10 +6,10 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "nodemon --exec ts-node --project tsconfig.server.json server",
+    "dev": "nodemon --exec babel-node --extensions '.ts,.tsx' server/index.ts",
     "build": "run-p build:*",
     "build:client": "next build",
-    "build:server": "tsc --project tsconfig.server.json",
+    "build:server": "babel server --extensions '.js,.ts,.tsx' --out-dir .build",
     "export": "next export",
     "sitemap": "node sitemap-generator",
     "analyze": "BUNDLE_ANALYZE=both next build",
@@ -23,9 +23,7 @@
     "fix:json": "prettier --write '**/*.json'",
     "test": "cross-env NODE_ENV=test jest",
     "test:watch": "cross-env NODE_ENV=test jest --watch",
-    "typecheck": "run-p typecheck:*",
-    "typecheck:client": "tsc --noEmit -p tsconfig.production.json",
-    "typecheck:server": "tsc --noEmit -p tsconfig.server.json",
+    "typecheck": "tsc --noEmit -p tsconfig.production.json",
     "lint-staged": "lint-staged"
   },
   "browserslist": [
@@ -64,11 +62,12 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-saga": "^1.0.5",
     "sanitize.css": "^11.0.0",
-    "tslib": "^1.10.0",
     "typesafe-actions": "^4.4.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.0",
     "@babel/core": "^7.5.4",
+    "@babel/node": "^7.5.0",
     "@types/body-parser": "^1.17.0",
     "@types/dotenv": "^6.1.1",
     "@types/dotenv-webpack": "^1.7.0",
@@ -125,7 +124,6 @@
     "stylelint-config-recess-order": "^2.0.2",
     "stylelint-config-recommended-scss": "^3.3.0",
     "stylelint-scss": "^3.9.1",
-    "ts-node": "^8.3.0",
     "typescript": "^3.5.3"
   }
 }

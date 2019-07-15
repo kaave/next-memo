@@ -1,4 +1,3 @@
-import 'tslib';
 import path from 'path';
 import next from 'next';
 import dotenv from 'dotenv';
