@@ -6,6 +6,8 @@ import Link from 'next/link';
 import { RootState, actions } from '~/redux';
 import DefaultLayout from '~/layouts/default';
 import styles from './index.scss';
+import { getMeta } from '@/utils/meta';
+import Head from '~/components/Head';
 
 export type Props = {
   localCount: number;
@@ -58,6 +60,7 @@ class HomePage extends React.Component<WithReduxProps, State> {
 
     return (
       <DefaultLayout>
+        <Head {...getMeta()} />
         <main id="main" className={styles.Home}>
           <h1>
             Hello, World! localCount: {localCount} ReduxCount: {reduxCount}

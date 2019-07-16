@@ -5,6 +5,8 @@ import Link from 'next/link';
 
 import { RootState, actions, selectors } from '~/redux';
 import DefaultLayout from '~/layouts/default';
+import { getMeta, title } from '@/utils/meta';
+import Head from '~/components/Head';
 
 const wait = (msec: number) => new Promise(resolve => setTimeout(resolve, msec));
 
@@ -27,6 +29,7 @@ const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
 
   return (
     <DefaultLayout>
+      <Head {...getMeta({ title: `セカンドページ | ${title}`, description: 'このページはセカンドなページです' })} />
       <div>
         <h1>
           Welcome To Second Page. {localCount}, {storeState.domain.counter.count}, {evenOrOdd()}

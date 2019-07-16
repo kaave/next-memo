@@ -12,8 +12,11 @@ class ModifiedDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang="ja">
         <Head>
+          <meta charSet="UTF-8" />
+          <meta httpEquiv="x-ua-compatible" content="ie=edge" />
+          <meta name="viewport" content="width=device-width,initial-scale=1" />
           <script src={`https://polyfill.io/v3/polyfill.min.js?features=${configs.polyfills}&flags=gated`} defer />
         </Head>
         <body>

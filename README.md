@@ -27,7 +27,7 @@
 
 - [x] CSS Reset
 - [x] PWA
-- [ ] meta tags
+- [x] meta tags
 - File structure
   - [x] layouts
   - [x] components
