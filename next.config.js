@@ -4,8 +4,6 @@ const path = require('path');
 const dotenv = require('dotenv');
 const DotenvWebpack = require('dotenv-webpack');
 const withOffline = require('next-offline');
-const withSass = require('@zeit/next-sass');
-const packageImporter = require('node-sass-package-importer');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
 
 dotenv.config();
@@ -28,15 +26,6 @@ function webpack(config, options) {
   return config;
 }
 
-const cssModulesOptions = {
-  cssModules: true,
-  cssLoaderOptions: {
-    importLoaders: 1,
-    localIdentName: '[name]__[local]--[hash:base64:5]',
-  },
-  importer: packageImporter(),
-};
-
 const analyzerOptions = {
   analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
   analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
@@ -56,12 +45,8 @@ const workboxOptions = {};
 
 const nextOptions = {
   webpack,
-  ...cssModulesOptions,
   ...analyzerOptions,
   ...workboxOptions,
 };
 
-module.exports = [withSass, withOffline, withBundleAnalyzer].reduce(
-  (tmp, fn) => (tmp == null ? fn(nextOptions) : fn(tmp)),
-  null,
-);
+module.exports = [withOffline, withBundleAnalyzer].reduce((tmp, fn) => (tmp == null ? fn(nextOptions) : fn(tmp)), null);

@@ -2,10 +2,10 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { NextPageContext } from 'next';
 import Link from 'next/link';
+import styled from 'styled-components';
 
 import { RootState, actions } from '~/redux';
 import DefaultLayout from '~/layouts/default';
-import styles from './index.scss';
 import { getMeta } from '@/utils/meta';
 import Head from '~/components/Head';
 
@@ -24,11 +24,19 @@ const mapDispatchToProps = (dispatch: any /* , props: Props */) => ({
     dispatch(actions.domain.counter.asyncIncrement.request(n ? { count: n } : { count: 666, callingFailed: true })),
 });
 
+const Main = styled.main`
+  grid-template:
+    'aaa bbb ccc' auto
+    'ddd eee fff' auto /
+    auto auto auto;
+  width: calc(100% - 10%);
+`;
+
 type WithReduxProps = Props & ReturnType<typeof mapStateToProps> & ReturnType<typeof mapDispatchToProps>;
 
 // eslint-disable-next-line react/prefer-stateless-function
 class HomePage extends React.Component<WithReduxProps, State> {
-  intervalTimer: NodeJS.Timeout | null = null;
+  intervalTimer: number | null = null;
   state = {};
 
   static getInitialProps = async (context: NextPageContext): Promise<Props> => {
@@ -61,7 +69,7 @@ class HomePage extends React.Component<WithReduxProps, State> {
     return (
       <DefaultLayout>
         <Head {...getMeta()} />
-        <main id="main" className={styles.Home}>
+        <Main id="main">
           <h1>
             Hello, World! localCount: {localCount} ReduxCount: {reduxCount}
           </h1>
@@ -74,7 +82,7 @@ class HomePage extends React.Component<WithReduxProps, State> {
           <Link href="/dynamic">
             <button type="button">Goto Dynamic Page</button>
           </Link>
-        </main>
+        </Main>
       </DefaultLayout>
     );
   }

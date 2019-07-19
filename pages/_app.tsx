@@ -3,13 +3,19 @@ import App, { Container, AppContext } from 'next/app';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import withReduxSaga from 'next-redux-saga';
+import { ThemeProvider } from 'styled-components';
 
-import '~/styles/_global.scss';
 import { Store } from '~/redux';
 import { configureStore } from '~/redux/store';
 
 type Props = { store: Store };
 type State = {};
+
+const theme = {
+  colors: {
+    primary: '#0070f3',
+  },
+};
 
 class ModifiedApp extends App<Props, State> {
   static async getInitialProps({ Component, ctx }: AppContext) {
@@ -28,7 +34,9 @@ class ModifiedApp extends App<Props, State> {
     return (
       <Container>
         <Provider store={store}>
-          <Component {...pageProps} />
+          <ThemeProvider theme={theme}>
+            <Component {...pageProps} />
+          </ThemeProvider>
         </Provider>
       </Container>
     );
