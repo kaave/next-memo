@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { all, call } from 'redux-saga/effects';
+// import { all, call } from 'redux-saga/effects';
 
 import * as Counter from './counter';
 
@@ -12,9 +12,9 @@ export const initialState: State = {
 };
 export const actions = { counter: Counter.actions };
 export const reducer = combineReducers({ counter: Counter.reducer });
-export function* saga() {
-  yield all([call(Counter.saga)]);
-}
 export const selectors = {
   counter: Counter.selectors,
+};
+export const operators = {
+  counter: Counter.operators,
 };

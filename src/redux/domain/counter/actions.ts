@@ -1,6 +1,5 @@
-import { createStandardAction, createAsyncAction, ActionType } from 'typesafe-actions';
+import { createStandardAction, ActionType } from 'typesafe-actions';
 
-import { PickUp } from '~/types/utils';
 import { types } from './types';
 
 const {
@@ -9,8 +8,8 @@ const {
   DECREMENT,
   ADD,
   ASYNC_INCREMENT_REQUEST,
-  ASYNC_INCREMENT_SUCCESSED,
-  ASYNC_INCREMENT_FAILED,
+  ASYNC_INCREMENT_SUCCESS,
+  ASYNC_INCREMENT_FAILURE,
 } = types;
 
 export const actions = {
@@ -20,19 +19,13 @@ export const actions = {
   add: createStandardAction(ADD).map(({ count }: { count: number }) => ({
     payload: { count },
   })),
-  asyncIncrement: createAsyncAction(ASYNC_INCREMENT_REQUEST, ASYNC_INCREMENT_SUCCESSED, ASYNC_INCREMENT_FAILED)<
-    PickUp<AsyncIncrementRequestAction, 'payload'>,
-    { count: number },
-    { message: Error }
-  >(),
+  asyncIncrementRequest: createStandardAction(ASYNC_INCREMENT_REQUEST)(),
+  asyncIncrementSuccess: createStandardAction(ASYNC_INCREMENT_SUCCESS).map(({ count }: { count: number }) => ({
+    payload: { count },
+  })),
+  asyncIncrementFailure: createStandardAction(ASYNC_INCREMENT_FAILURE).map(({ message }: { message: Error }) => ({
+    error: { message },
+  })),
 };
 
 export type Action = ActionType<typeof actions>;
-
-/*
- * async actions
- */
-export type AsyncIncrementRequestAction = {
-  type: typeof ASYNC_INCREMENT_REQUEST;
-  payload: { count: number; callingFailed?: boolean };
-};

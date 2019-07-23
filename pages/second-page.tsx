@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { NextPage, NextPageContext } from 'next';
 import Link from 'next/link';
 
-import { RootState, actions, selectors } from '~/redux';
+import { RootState, actions, selectors, operators } from '~/redux';
 import DefaultLayout from '~/layouts/default';
 import { getMeta, title } from '@/utils/meta';
 import Head from '~/components/Head';
@@ -19,6 +19,7 @@ const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
   const dispatch = useDispatch();
   const storeState = useSelector((state: RootState) => state);
   const onAddClick = useCallback(() => dispatch(actions.domain.counter.increment()), [dispatch]);
+  const onAsyncAddClick = useCallback(() => dispatch(operators.domain.counter.asyncIncrementRequest()), [dispatch]);
   const evenOrOdd = () => selectors.domain.counter.evenOrOdd(storeState.domain.counter);
 
   useEffect(() => {
@@ -36,6 +37,9 @@ const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
         </h1>
         <button type="button" onClick={onAddClick}>
           Add
+        </button>
+        <button type="button" onClick={onAsyncAddClick}>
+          AsyncAdd
         </button>
         <Link href="/">
           <button type="button">Go Back</button>

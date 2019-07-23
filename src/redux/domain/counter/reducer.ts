@@ -28,18 +28,18 @@ export const reducer = createReducer<State, Action>(initialState)
       draftState.count += action.payload.count;
     }),
   )
-  .handleAction(actions.asyncIncrement.request, state =>
+  .handleAction(actions.asyncIncrementRequest, state =>
     produce(state, draftState => {
       draftState.execRequest = true;
     }),
   )
-  .handleAction(actions.asyncIncrement.success, (state, action) =>
+  .handleAction(actions.asyncIncrementSuccess, (state, action) =>
     produce(state, draftState => {
       draftState.count += action.payload.count;
       draftState.execRequest = false;
     }),
   )
-  .handleAction(actions.asyncIncrement.failure, state =>
+  .handleAction(actions.asyncIncrementFailure, state =>
     produce(state, draftState => {
       draftState.execRequest = false;
     }),
