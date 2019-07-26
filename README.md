@@ -33,11 +33,11 @@
   - [x] components
 - [x] redux
   - [x] with immer
-  - [ ] re-ducks pattern
+  - [x] re-ducks pattern
   - [ ] DDD and clean-architecture like architecture
 - async redux middleware
   - [x] redux-saga
-  - [ ] redux-thunk
+  - [x] redux-thunk
   - [ ] redux-observable
 
 ### backend
