@@ -118,6 +118,8 @@
     "postcss-color-hex-alpha": "^5.0.3",
     "postcss-custom-properties": "^9.0.1",
     "postcss-flexbugs-fixes": "^4.1.0",
+    "postcss-image-set-function": "^3.0.1",
+    "postcss-initial": "^3.0.1",
     "postcss-url": "^8.0.0",
     "prettier": "^1.18.2",
     "sort-package-json": "^1.22.1",
