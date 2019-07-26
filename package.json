@@ -1,30 +1,35 @@
 {
   "name": "next-js",
   "version": "1.0.0",
-  "main": "index.js",
-  "author": "kaave <abe@framelunch.jp>",
-  "license": "MIT",
   "private": true,
+  "license": "MIT",
+  "author": "kaave <abe@framelunch.jp>",
+  "main": "index.js",
   "scripts": {
-    "dev": "nodemon --exec babel-node --extensions '.ts,.tsx' server/index.ts",
+    "analyze": "BUNDLE_ANALYZE=both next build",
     "build": "run-p build:*",
     "build:client": "next build",
     "build:server": "babel server --extensions '.js,.ts,.tsx' --out-dir .build",
+    "dev": "nodemon --exec babel-node --extensions '.ts,.tsx' server/index.ts",
     "export": "next export",
-    "sitemap": "node sitemap-generator",
-    "analyze": "BUNDLE_ANALYZE=both next build",
-    "start": "NODE_ENV=production node .build",
-    "lint": "run-p lint:*",
-    "lint:style": "stylelint '**/*.scss'",
-    "lint:script": "eslint '**/*.{js,ts,tsx}'",
     "fix": "run-p fix:*",
-    "fix:style": "stylelint --fix '**/*.scss'",
-    "fix:script": "eslint --fix '**/*.{js,ts,tsx}'",
     "fix:json": "prettier --write '**/*.json'",
+    "fix:script": "eslint --fix '**/*.{js,ts,tsx}'",
+    "fix:style": "stylelint --fix '**/*.scss'",
+    "lint": "run-p lint:*",
+    "lint-staged": "lint-staged",
+    "lint:script": "eslint '**/*.{js,ts,tsx}'",
+    "lint:style": "stylelint '**/*.scss'",
+    "sitemap": "node sitemap-generator",
+    "start": "NODE_ENV=production node .build",
     "test": "cross-env NODE_ENV=test jest",
     "test:watch": "cross-env NODE_ENV=test jest --watch",
-    "typecheck": "tsc --noEmit -p tsconfig.production.json",
-    "lint-staged": "lint-staged"
+    "typecheck": "tsc --noEmit -p tsconfig.production.json"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "run-p typecheck lint-staged"
+    }
   },
   "browserslist": [
     "> 0.5% in jp",
@@ -35,11 +40,6 @@
     "not chrome 49",
     "not dead"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "run-p typecheck lint-staged"
-    }
-  },
   "dependencies": {
     "@zeit/next-bundle-analyzer": "^0.1.2",
     "@zeit/next-sass": "^1.0.1",
@@ -120,6 +120,7 @@
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-url": "^8.0.0",
     "prettier": "^1.18.2",
+    "sort-package-json": "^1.22.1",
     "stylelint": "^10.1.0",
     "stylelint-config-prettier": "^5.2.0",
     "stylelint-config-recess-order": "^2.0.2",
