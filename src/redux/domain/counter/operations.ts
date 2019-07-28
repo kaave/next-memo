@@ -5,7 +5,7 @@ import { RootState } from '../..';
 
 const wait = (msec: number) => new Promise(resolve => setTimeout(resolve, msec));
 
-export const operators = {
+export const operations = {
   asyncIncrementRequest: () => async (dispatch: Dispatch, getState: () => RootState) => {
     const state = getState();
     console.log(state);

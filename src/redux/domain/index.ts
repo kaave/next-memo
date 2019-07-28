@@ -15,6 +15,6 @@ export const reducer = combineReducers({ counter: Counter.reducer });
 export const selectors = {
   counter: Counter.selectors,
 };
-export const operators = {
-  counter: Counter.operators,
+export const operations = {
+  counter: Counter.operations,
 };

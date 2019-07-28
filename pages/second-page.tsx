@@ -4,7 +4,7 @@ import { NextPage, NextPageContext } from 'next';
 import Link from 'next/link';
 // import { NextJSContext } from 'next-redux-wrapper';
 
-import { RootState, actions, selectors, operators } from '~/redux';
+import { RootState, actions, selectors, operations } from '~/redux';
 import DefaultLayout from '~/layouts/default';
 import { getMeta, title } from '@/utils/meta';
 import Head from '~/components/Head';
@@ -20,7 +20,7 @@ const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
   const dispatch = useDispatch();
   const storeState = useSelector((state: RootState) => state);
   const onAddClick = useCallback(() => dispatch(actions.domain.counter.increment()), [dispatch]);
-  const onAsyncAddClick = useCallback(() => dispatch(operators.domain.counter.asyncIncrementRequest()), [dispatch]);
+  const onAsyncAddClick = useCallback(() => dispatch(operations.domain.counter.asyncIncrementRequest()), [dispatch]);
   const evenOrOdd = () => selectors.domain.counter.evenOrOdd(storeState.domain.counter);
 
   useEffect(() => {
@@ -57,12 +57,12 @@ SecondPage.getInitialProps = async (context: NextPageContext): Promise<Props> =>
     store: { dispatch },
   } = context as any; // TODO: maybe @types/next version problem
   if (isServer) {
-    await dispatch(operators.application.asyncWriteMessage({ message: 'from server' }));
+    await dispatch(operations.application.asyncWriteMessage({ message: 'from server' }));
     await wait(1000);
     return { initialLocalCount: 1234 };
   }
 
-  await dispatch(operators.application.asyncWriteMessage({ message: 'from client' }));
+  await dispatch(operations.application.asyncWriteMessage({ message: 'from client' }));
   return { initialLocalCount: 0 };
 };
 

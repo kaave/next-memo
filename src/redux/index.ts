@@ -23,7 +23,7 @@ export const reducer = combineReducers({ domain: Domain.reducer, application: Ap
 export const selectors = {
   domain: Domain.selectors,
 };
-export const operators = {
-  domain: Domain.operators,
-  application: Application.operators,
+export const operations = {
+  domain: Domain.operations,
+  application: Application.operations,
 };
