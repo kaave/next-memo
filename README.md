@@ -22,6 +22,7 @@
 - [x] simple auth
 - [x] dynamic routing
 - [x] dynamic import
+- [x] access to store in getInitialProps
 
 ### frontend
 

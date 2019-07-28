@@ -25,4 +25,5 @@ export const selectors = {
 };
 export const operators = {
   domain: Domain.operators,
+  application: Application.operators,
 };

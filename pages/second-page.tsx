@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { NextPage, NextPageContext } from 'next';
 import Link from 'next/link';
+// import { NextJSContext } from 'next-redux-wrapper';
 
 import { RootState, actions, selectors, operators } from '~/redux';
 import DefaultLayout from '~/layouts/default';
@@ -33,7 +34,8 @@ const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
       <Head {...getMeta({ title: `セカンドページ | ${title}`, description: 'このページはセカンドなページです' })} />
       <div>
         <h1>
-          Welcome To Second Page. {localCount}, {storeState.domain.counter.count}, {evenOrOdd()}
+          Welcome To Second Page. {localCount}, {storeState.domain.counter.count}, {evenOrOdd()}{' '}
+          {storeState.application.message}
         </h1>
         <button type="button" onClick={onAddClick}>
           Add
@@ -51,11 +53,16 @@ const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
 
 SecondPage.getInitialProps = async (context: NextPageContext): Promise<Props> => {
   const isServer = context.req != null;
+  const {
+    store: { dispatch },
+  } = context as any; // TODO: maybe @types/next version problem
   if (isServer) {
-    wait(1000);
+    await dispatch(operators.application.asyncWriteMessage({ message: 'from server' }));
+    await wait(1000);
     return { initialLocalCount: 1234 };
   }
 
+  await dispatch(operators.application.asyncWriteMessage({ message: 'from client' }));
   return { initialLocalCount: 0 };
 };
 

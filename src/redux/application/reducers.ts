@@ -5,7 +5,7 @@ import produce from 'immer';
 import { actions, Action } from './actions';
 import { State } from './types';
 
-export const initialState: State = { isLoading: false };
+export const initialState: State = { isLoading: false, message: 'initial message' };
 
 export const reducer = createReducer<State, Action>(initialState)
   .handleAction(actions.start, (state, action) =>
@@ -16,5 +16,10 @@ export const reducer = createReducer<State, Action>(initialState)
   .handleAction(actions.end, (state, action) =>
     produce(state, draft => {
       draft.isLoading = action.payload.isLoading;
+    }),
+  )
+  .handleAction(actions.asyncWriteMessage, (state, action) =>
+    produce(state, draft => {
+      draft.message = action.payload.message;
     }),
   );
