@@ -16,6 +16,7 @@
 - [x] sitemap
   - [ ] create dynamic routes
 - [x] test
+- [x] storybook
 
 ### both
 
