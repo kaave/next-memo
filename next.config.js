@@ -7,15 +7,15 @@ const withOffline = require('next-offline');
 const withSass = require('@zeit/next-sass');
 const packageImporter = require('node-sass-package-importer');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 dotenv.config();
 
 function webpack(config, options) {
-  config.resolve.alias = {
-    ...config.resolve.alias,
-    '~': path.resolve('src'),
-    '@': path.resolve('.'),
-  };
+  config.resolve = config.resolve || {};
+  config.resolve.plugins = config.resolve.plugins || [];
+
+  config.resolve.plugins.push(new TsconfigPathsPlugin());
 
   config.plugins = [
     ...config.plugins,
