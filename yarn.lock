@@ -2515,43 +2515,6 @@
     "@types/react-redux" "*"
     redux "^3.6.0"
 
-"@types/next-server@*":
-  version "8.1.1"
-  resolved "https://registry.yarnpkg.com/@types/next-server/-/next-server-8.1.1.tgz#1570d5079cf7e82e77f48826024c6e2797cddda7"
-  integrity sha512-R9NbH5pcZSNx2mUkAlyqhP8RQDJIeugZm68AqZlrgRAKO3KqZAMiynqUv8bqm5zDw4nLy7OlD/ELUEP/iyVnsw==
-  dependencies:
-    "@types/next" "*"
-    "@types/node" "*"
-    "@types/react" "*"
-    "@types/react-loadable" "*"
-
-"@types/next@*":
-  version "8.0.5"
-  resolved "https://registry.yarnpkg.com/@types/next/-/next-8.0.5.tgz#667551f587f7905388bd89a6962d93e930f6c314"
-  integrity sha512-JZVgbTPuptXEwu2pi928bG0WJARCInJEu9CW6wh0veKGkE2zWNvr9SSb4+7NN2ffNlTPRv9MMS3AE4cTI69HmA==
-  dependencies:
-    "@types/next-server" "*"
-    "@types/node" "*"
-    "@types/node-fetch" "*"
-    "@types/react" "*"
-
-"@types/next@^8.0.6":
-  version "8.0.6"
-  resolved "https://registry.yarnpkg.com/@types/next/-/next-8.0.6.tgz#e4ceb01069b82bfe20d98bb3ba2cb65eb5c77bdd"
-  integrity sha512-NEPE5PpZ0atyX08I5B06A94OaygoZkLyv4zsZ9OkxbaCe9tIbIYzNWIievY36zXtOFL44JS/MArUuVdAUK9kCQ==
-  dependencies:
-    "@types/next-server" "*"
-    "@types/node" "*"
-    "@types/node-fetch" "*"
-    "@types/react" "*"
-
-"@types/node-fetch@*":
-  version "2.3.7"
-  resolved "https://registry.yarnpkg.com/@types/node-fetch/-/node-fetch-2.3.7.tgz#b7212e895100f8642dbdab698472bab5f3c1d2f1"
-  integrity sha512-+bKtuxhj/TYSSP1r4CZhfmyA0vm/aDRQNo7vbAgf6/cZajn0SAniGGST07yvI4Q+q169WTa2/x9gEHfJrkcALw==
-  dependencies:
-    "@types/node" "*"
-
 "@types/node@*":
   version "12.0.8"
   resolved "https://registry.yarnpkg.com/@types/node/-/node-12.0.8.tgz#551466be11b2adc3f3d47156758f610bd9f6b1d8"
@@ -2588,14 +2551,6 @@
   integrity sha512-eIRpEW73DCzPIMaNBDP5pPIpK1KXyZwNgfxiVagb5iGiz6da+9A5hslSX6GAQKdO7SayVCS/Fr2kjqprgAvkfA==
   dependencies:
     "@types/react" "*"
-
-"@types/react-loadable@*":
-  version "5.5.1"
-  resolved "https://registry.yarnpkg.com/@types/react-loadable/-/react-loadable-5.5.1.tgz#f04a262f16e9f088098ddad1aa50682ad0984aa7"
-  integrity sha512-PSmh6IT9vHeO9QjhApMMiJ65T0Amrpf3fom+04ur872IdgCZK9MzjeN3Q11bzgQMkrV448sbT8WopQw9o0LX1g==
-  dependencies:
-    "@types/react" "*"
-    "@types/webpack" "*"
 
 "@types/react-redux@*":
   version "7.1.0"

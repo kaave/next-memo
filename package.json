@@ -90,7 +90,6 @@
     "@types/express-session": "^1.15.13",
     "@types/jest": "^24.0.15",
     "@types/jsonwebtoken": "^8.3.2",
-    "@types/next": "^8.0.6",
     "@types/next-redux-saga": "^3.0.1",
     "@types/next-redux-wrapper": "^2.0.2",
     "@types/node": "^10",
