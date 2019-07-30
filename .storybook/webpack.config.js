@@ -1,11 +1,10 @@
 const path = require('path');
 
 module.exports = ({ config }) => {
-  config.resolve.alias = {
-    ...config.resolve.alias,
-    '~': path.resolve(process.cwd(), 'src'),
-    '@': path.resolve(process.cwd(), '.'),
-  };
+  config.resolve = config.resolve || {};
+  config.resolve.plugins = config.resolve.plugins || [];
+
+  config.resolve.plugins.push(new TsconfigPathsPlugin());
 
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
