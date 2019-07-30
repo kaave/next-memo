@@ -1,4 +1,5 @@
 .build
 .next
 node_modules
+out
 **/*.d.ts

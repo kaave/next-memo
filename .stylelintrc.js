@@ -1,6 +1,6 @@
 module.exports = {
   extends: ['stylelint-config-recess-order', 'stylelint-config-prettier', 'stylelint-config-recommended-scss'],
-  ignoreFiles: ['node_modules/**/*', '.build/**/*', '.next/**/*'],
+  ignoreFiles: ['node_modules/**/*', '.build/**/*', '.next/**/*', 'out/**/*'],
   syntax: 'scss',
   rules: {
     /*
