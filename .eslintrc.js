@@ -70,6 +70,7 @@ module.exports = {
         devDependencies: [
           'sitemap-generator.js',
           'test/**',
+          'stories/**/*.stories.*',
           '**/__tests__/**',
           '**/__mocks__/**',
           '**/*{.,_}{test,spec}.{js,jsx,ts,tsx}',
