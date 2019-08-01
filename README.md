@@ -26,6 +26,7 @@
     - [ ] selector
     - [ ] operation
 - [x] storybook
+- [ ] use [yarn workspace](https://yarnpkg.com/lang/ja/docs/workspaces/)
 
 ### both
 
