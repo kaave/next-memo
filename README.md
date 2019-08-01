@@ -42,11 +42,12 @@
 - [x] PWA
 - [x] meta tags
 - transition patterns. memo: <https://kansock.industries/ja/articles/static__api__20190417_01/>
-  - [ ] [react-transition-group](https://github.com/reactjs/react-transition-group)
+  - [x] [react-transition-group](https://github.com/reactjs/react-transition-group)
   - [ ] [next-page-transitions](https://github.com/illinois/next-page-transitions)
 - File structure
   - [x] layouts
   - [x] components
+- [ ] custom hooks
 - [x] redux
   - [x] with immer
   - [x] re-ducks pattern

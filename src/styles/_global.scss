@@ -42,6 +42,8 @@ pre {
     transition: opacity 200ms;
 }
 .ReduxCount-exit {
+    position: absolute;
+    left: 0;
     opacity: 1;
 }
 .ReduxCount-exit-active {

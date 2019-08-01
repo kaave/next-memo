@@ -34,7 +34,7 @@ module.exports = {
       // use <root>/tsconfig.json
       typescript: {},
       webpack: {
-        config: './tsconfig.production.js',
+        config: './tsconfig.json',
       },
       node: {
         extensions: ['.js', '.ts', '.jsx', '.tsx', '.json'],

@@ -3,7 +3,7 @@ import App, { Container, AppContext } from 'next/app';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 
-import '~/styles/_global.scss';
+import '~/styles/_global.scss?raw';
 import { Store } from '~/redux';
 import { configureStore } from '~/redux/store';
 

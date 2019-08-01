@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { NextPageContext } from 'next';
 import Link from 'next/link';
+import { TransitionGroup, CSSTransition } from 'react-transition-group';
 
 import { RootState, actions } from '~/redux';
 import DefaultLayout from '~/layouts/default';
@@ -59,7 +60,12 @@ class HomePage extends React.Component<WithReduxProps, State> {
         <Head {...getMeta()} />
         <main id="main" className={styles.Home}>
           <h1>
-            Hello, World! localCount: {localCount} ReduxCount: {reduxCount}
+            Hello, World! localCount: {localCount} ReduxCount:
+            <TransitionGroup>
+              <CSSTransition key={reduxCount} timeout={400} classNames="ReduxCount">
+                <span>{reduxCount}</span>
+              </CSSTransition>
+            </TransitionGroup>
           </h1>
           <Link href="/signin">
             {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
