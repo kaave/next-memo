@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux'; // eslint-disable-line no-restricted-imports
 import { NextPage, NextPageContext } from 'next';
 import Link from 'next/link';
 // import { NextJSContext } from 'next-redux-wrapper';

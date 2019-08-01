@@ -47,6 +47,18 @@ module.exports = {
   rules: {
     // クラスメンバーは改行で区切るが、1行の場合はスルー
     'lines-between-class-members': ['error', 'always', { exceptAfterSingleLine: true }],
+    'no-restricted-imports': [
+      'warn',
+      {
+        paths: [
+          {
+            name: 'react-redux',
+            importNames: ['useDispatch', 'useSelector'],
+            message: 'useDispatch and useSelector have a huge power. are you really want?',
+          },
+        ],
+      },
+    ],
     // default exportを押す 無効化
     'import/prefer-default-export': 'off',
     // ~が機能しないため外す
