@@ -15,7 +15,8 @@ const DynamicPage: NextPage<Props> = () => {
       <div>
         <DynamicHello name="John Doe" />
         <Link href="/">
-          <button type="button">Go Back</button>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a>Go Back</a>
         </Link>
       </div>
     </DefaultLayout>

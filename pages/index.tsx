@@ -62,13 +62,16 @@ class HomePage extends React.Component<WithReduxProps, State> {
             Hello, World! localCount: {localCount} ReduxCount: {reduxCount}
           </h1>
           <Link href="/signin">
-            <button type="button">Goto Signin Page</button>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a>Goto Signin Page</a>
           </Link>
           <Link href="/second-page">
-            <button type="button">Goto Second Page</button>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a>Goto Second Page</a>
           </Link>
           <Link href="/dynamic">
-            <button type="button">Goto Dynamic Page</button>
+            {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+            <a>Goto Dynamic Page</a>
           </Link>
         </main>
       </DefaultLayout>

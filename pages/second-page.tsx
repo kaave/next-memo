@@ -44,7 +44,8 @@ const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
           AsyncAdd
         </button>
         <Link href="/">
-          <button type="button">Go Back</button>
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <a>Go Back</a>
         </Link>
       </div>
     </DefaultLayout>

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { NextPage } from 'next';
 import axios from 'axios';
+import Link from 'next/link';
 
 import DefaultLayout from '~/layouts/default';
 
@@ -29,6 +30,10 @@ const Signin: NextPage = () => {
           send
         </button>
       </form>
+      <Link href="/">
+        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+        <a>Go Back</a>
+      </Link>
     </DefaultLayout>
   );
 };
