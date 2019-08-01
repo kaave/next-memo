@@ -16,6 +16,15 @@
 - [x] sitemap
   - [ ] create dynamic routes
 - [x] test
+  - [ ] component
+  - [ ] container
+  - [ ] routing
+  - [ ] pages
+  - redux
+    - [ ] action
+    - [ ] reducer
+    - [ ] selector
+    - [ ] operation
 - [x] storybook
 
 ### both
@@ -30,6 +39,9 @@
 - [x] CSS Reset
 - [x] PWA
 - [x] meta tags
+- transition patterns. memo: <https://kansock.industries/ja/articles/static__api__20190417_01/>
+  - [ ] [react-transition-group](https://github.com/reactjs/react-transition-group)
+  - [ ] [next-page-transitions](https://github.com/illinois/next-page-transitions)
 - File structure
   - [x] layouts
   - [x] components
