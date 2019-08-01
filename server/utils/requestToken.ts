@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
+import * as HttpStatus from 'http-status-codes';
 
 import * as Consts from '../consts';
 
@@ -15,19 +16,19 @@ async function verifyToken(token: string, validator?: (value: string | object) =
 
 export async function requireToken(req: Request, res: Response, next: NextFunction) {
   if (!req.headers) {
-    res.sendStatus(401);
+    res.sendStatus(HttpStatus.UNAUTHORIZED);
     return;
   }
 
   const { authorization } = req.headers;
   if (!authorization) {
-    res.sendStatus(401);
+    res.sendStatus(HttpStatus.UNAUTHORIZED);
     return;
   }
 
   const token = authorization.replace(/^Bearer\s/, '');
   if (!(await verifyToken(token))) {
-    res.sendStatus(401);
+    res.sendStatus(HttpStatus.UNAUTHORIZED);
     return;
   }
 
