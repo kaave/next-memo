@@ -33,3 +33,18 @@ pre {
     clip: rect(0, 0, 0, 0);
     border: 0;
 }
+
+.ReduxCount-enter {
+    opacity: 0;
+}
+.ReduxCount-enter-active {
+    opacity: 1;
+    transition: opacity 200ms;
+}
+.ReduxCount-exit {
+    opacity: 1;
+}
+.ReduxCount-exit-active {
+    opacity: 0;
+    transition: opacity 200ms;
+}

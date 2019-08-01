@@ -12,6 +12,7 @@
 - [x] prettier
 - [x] husky + lint-staged
 - [x] CSS Modules
+  - [x] import RAW-style css
 - [x] more strictly tsconfig
 - [x] sitemap
   - [ ] create dynamic routes
