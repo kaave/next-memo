@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux'; // eslint-disable-line no-restricted-imports
 import { NextPage, NextPageContext } from 'next';
 import Link from 'next/link';
@@ -6,25 +6,12 @@ import Link from 'next/link';
 
 import { RootState, actions, selectors, operations } from '~/redux';
 import DefaultLayout from '~/layouts/default';
+import { useInterval } from '~/hooks/useInterval';
 import { getMeta, title } from '@/utils/meta';
 import Head from '~/components/Head';
+import Modal from '~/components/Modal';
 
 const wait = (msec: number) => new Promise(resolve => setTimeout(resolve, msec));
-
-function useInterval(callback: () => void, delay: number) {
-  const savedCallback = useRef<() => void>();
-
-  useEffect(() => {
-    savedCallback.current = callback;
-  }, [callback]);
-
-  useEffect(() => {
-    const id = setInterval(() => {
-      if (savedCallback.current) savedCallback.current();
-    }, delay);
-    return () => clearInterval(id);
-  }, [delay]);
-}
 
 export type Props = {
   initialLocalCount: number;
@@ -32,6 +19,7 @@ export type Props = {
 
 const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
   const [localCount, setLocalCount] = useState(initialLocalCount);
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const storeState = useSelector((state: RootState) => state);
   const onAddClick = useCallback(() => dispatch(actions.domain.counter.increment()), [dispatch]);
@@ -56,10 +44,14 @@ const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
         <button type="button" onClick={onAsyncAddClick}>
           AsyncAdd
         </button>
+        <button type="button" onClick={() => setShowModal(state => !state)}>
+          ShowModal
+        </button>
         <Link href="/">
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a>Go Back</a>
         </Link>
+        {showModal && <Modal>Modal!</Modal>}
       </div>
     </DefaultLayout>
   );
