@@ -2,6 +2,7 @@ import React from 'react';
 import App, { Container, AppContext } from 'next/app';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
+import { PageTransition } from 'next-page-transitions';
 
 import '~/styles/_global.scss?raw';
 import { Store } from '~/redux';
@@ -22,12 +23,14 @@ class ModifiedApp extends App<Props, State> {
   }
 
   render() {
-    const { Component, pageProps, store } = this.props;
+    const { Component, pageProps, store, router } = this.props;
 
     return (
       <Container>
         <Provider store={store}>
-          <Component {...pageProps} />
+          <PageTransition timeout={300} classNames="page-transition">
+            <Component {...pageProps} key={router.route} />
+          </PageTransition>
         </Provider>
       </Container>
     );
