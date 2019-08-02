@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux'; // eslint-disable-line no-restricted-imports
 import { NextPage, NextPageContext } from 'next';
 import Link from 'next/link';
@@ -10,6 +10,21 @@ import { getMeta, title } from '@/utils/meta';
 import Head from '~/components/Head';
 
 const wait = (msec: number) => new Promise(resolve => setTimeout(resolve, msec));
+
+function useInterval(callback: () => void, delay: number) {
+  const savedCallback = useRef<() => void>();
+
+  useEffect(() => {
+    savedCallback.current = callback;
+  }, [callback]);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      if (savedCallback.current) savedCallback.current();
+    }, delay);
+    return () => clearInterval(id);
+  }, [delay]);
+}
 
 export type Props = {
   initialLocalCount: number;
@@ -23,11 +38,9 @@ const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
   const onAsyncAddClick = useCallback(() => dispatch(operations.domain.counter.asyncIncrementRequest()), [dispatch]);
   const evenOrOdd = () => selectors.domain.counter.evenOrOdd(storeState.domain.counter);
 
-  useEffect(() => {
-    const intervalID = setInterval(() => setLocalCount(state => state + 1), 1000);
-
-    return () => clearInterval(intervalID);
-  });
+  useInterval(() => {
+    setLocalCount(state => state + 1);
+  }, 1000);
 
   return (
     <DefaultLayout>
