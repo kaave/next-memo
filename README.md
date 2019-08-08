@@ -5,6 +5,7 @@
 ### dev
 
 - [x] TypeScript
+  - [x] support [numeric-separator](https://babeljs.io/docs/en/babel-plugin-proposal-numeric-separator)
 - [x] SCSS
 - [x] PostCSS plugins
 - [x] ESLint

@@ -62,7 +62,7 @@ class HomePage extends React.Component<WithReduxProps, State> {
           <h1>
             Hello, World! localCount: {localCount} ReduxCount:
             <TransitionGroup>
-              <CSSTransition key={reduxCount} timeout={400} classNames="ReduxCount">
+              <CSSTransition key={reduxCount} timeout={1_000_000_000 / 1_000_000} classNames="ReduxCount">
                 <span>{reduxCount}</span>
               </CSSTransition>
             </TransitionGroup>
