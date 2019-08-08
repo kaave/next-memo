@@ -3,6 +3,7 @@ import App, { Container, AppContext } from 'next/app';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import { PageTransition } from 'next-page-transitions';
+import { css, Global } from '@emotion/core';
 
 import '~/styles/_global.scss?raw';
 import { Store } from '~/redux';
@@ -10,6 +11,12 @@ import { configureStore } from '~/redux/store';
 
 type Props = { store: Store };
 type State = {};
+
+const styles = css`
+  body {
+    background: green;
+  }
+`;
 
 class ModifiedApp extends App<Props, State> {
   static async getInitialProps({ Component, ctx }: AppContext) {
@@ -27,6 +34,7 @@ class ModifiedApp extends App<Props, State> {
 
     return (
       <Container>
+        <Global styles={styles} />
         <Provider store={store}>
           <PageTransition timeout={300} classNames="page-transition">
             <Component {...pageProps} key={router.route} />
