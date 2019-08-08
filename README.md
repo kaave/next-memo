@@ -13,6 +13,9 @@
 - [x] husky + lint-staged
 - [x] CSS Modules
   - [x] import RAW-style css
+- CSS in JS
+  - [x] [emotion](https://github.com/kaave/next-memo/compare/feature/emotion)
+  - [x] [styled-component](https://github.com/kaave/next-memo/compare/feature/styled-components)
 - [x] more strictly tsconfig
 - [x] sitemap
   - [ ] create dynamic routes
