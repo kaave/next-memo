@@ -10,4 +10,7 @@ const components = storiesOf('Components', module);
 components
   .addDecorator(withKnobs)
   .addDecorator(withInfo({ inline: true }))
+  .addParameters({
+    backgrounds: [{ name: 'twitter', value: '#00aced', default: true }, { name: 'facebook', value: '#3b5998' }],
+  })
   .add('Hello', () => <Hello name={text('Name', 'Storybook')} />);
