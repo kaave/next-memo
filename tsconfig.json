@@ -25,6 +25,5 @@
         "isolatedModules": true,
         "noEmit": true
     },
-    "exclude": ["*.config.js"],
     "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
 }

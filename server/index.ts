@@ -39,12 +39,10 @@ async function main() {
   Api.register(server);
 
   // auth test
-  // @ts-ignore
-  server.get('/secret', requireToken, (req, res) => res.send('it is secret message'));
+  server.get('/secret', requireToken, (_, res) => res.send('it is secret message'));
 
   // https://github.com/hanford/next-offline/issues/141#issuecomment-508539109
-  // @ts-ignore
-  server.get('/service-worker.js', (req, res) =>
+  server.get('/service-worker.js', (_, res) =>
     res.sendFile(path.resolve(__dirname, '..', '.next', 'service-worker.js')),
   );
 

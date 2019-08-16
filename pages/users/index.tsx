@@ -1,11 +1,9 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { NextPage, NextPageContext } from 'next';
 
 export type Props = {};
 
-const UsersPage: NextPage<Props> = () => {
-  return <Fragment />;
-};
+const UsersPage: NextPage<Props> = () => <></>;
 
 UsersPage.getInitialProps = async (context: NextPageContext): Promise<Props> => {
   const redirectPath = '/users/JohnDoe';

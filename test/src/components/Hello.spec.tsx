@@ -11,7 +11,7 @@ describe('<Hello />', () => {
 
   it('props.nameありだとHello! <わたした名前>', () => {
     const name = 'Novak Đoković';
-    const renderer = shallow(<Hello {...{ name }} />);
+    const renderer = shallow(<Hello name={name} />);
     expect(renderer.text().includes(name)).toBeTruthy();
   });
 });

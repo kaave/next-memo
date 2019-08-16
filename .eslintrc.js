@@ -16,7 +16,7 @@ module.exports = {
     ecmaFeatures: {
       jsx: true,
     },
-    project: './tsconfig.json',
+    project: './tsconfig.eslint.json',
   },
   env: {
     browser: true,
@@ -104,6 +104,10 @@ module.exports = {
     'react/destructuring-assignment': ['error', 'always', { ignoreClassFields: true }],
     // メソッドやらプロパティやらの順序を縛る 無効化 いろいろめんどくさい
     'react/sort-comp': 'off',
+    // stateをクラスプロパティの宣言と同時に初期化するようにする
+    'react/state-in-constructor': ['error', 'never'],
+    // propsを渡す際にspread operatorで渡すやり方を一部コンポーネントを除いて禁止 初見殺しなので
+    'react/jsx-props-no-spreading': ['error', { exceptions: ['Head', 'Component'] }],
     // Checks rules of Hooks
     'react-hooks/rules-of-hooks': 'error',
     // Checks effect dependencies

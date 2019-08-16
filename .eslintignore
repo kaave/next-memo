@@ -1,5 +1,8 @@
 .build
 .next
+.vscode
 node_modules
+coverage
 out
 **/*.d.ts
+*.config.js
