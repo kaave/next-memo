@@ -14,7 +14,8 @@
         "baseUrl": ".",
         "paths": {
             "~/*": ["./src/*"],
-            "@/*": ["./*"]
+            "@/*": ["./*"],
+            "@images/*": ["./static/images/*"]
         },
         "typeRoots": ["./node_modules/@types", "./src/types"],
         "allowSyntheticDefaultImports": true,
