@@ -8,6 +8,8 @@ const withOffline = require('next-offline');
 const packageImporter = require('node-sass-package-importer');
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
 const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const withOptimizedImages = require('next-optimized-images');
+
 const withSass = require('./tools/with-scss');
 
 dotenv.config();
@@ -53,16 +55,26 @@ const analyzerOptions = {
   },
 };
 
+const optimizedImagesOptions = {
+  mozjpeg: {
+    quality: 80,
+  },
+  pngquant: {
+    quality: [0.65, 0.8],
+  },
+};
+
 const workboxOptions = {};
 
 const nextOptions = {
   webpack,
   ...cssModulesOptions,
   ...analyzerOptions,
+  ...optimizedImagesOptions,
   ...workboxOptions,
 };
 
-module.exports = [withSass, withOffline, withBundleAnalyzer].reduce(
+module.exports = [withSass, withOptimizedImages, withOffline, withBundleAnalyzer].reduce(
   (tmp, fn) => (tmp == null ? fn(nextOptions) : fn(tmp)),
   null,
 );

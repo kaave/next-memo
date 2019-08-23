@@ -4,6 +4,8 @@ import { NextPage, NextPageContext } from 'next';
 import Link from 'next/link';
 // import { NextJSContext } from 'next-redux-wrapper';
 
+import omoriImage from '@images/omori_futan_woman.png';
+import unsplashImage from '@images/sai-de-silva-4-gFGb12hFA-unsplash.jpg';
 import { RootState, actions, selectors, operations } from '~/redux';
 import DefaultLayout from '~/layouts/default';
 import { useInterval } from '~/hooks/useInterval';
@@ -38,6 +40,8 @@ const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
           Welcome To Second Page. {localCount}, {storeState.domain.counter.count}, {evenOrOdd()}{' '}
           {storeState.application.message}
         </h1>
+        <img src={omoriImage} alt="" />
+        <img src={unsplashImage} alt="" />
         <button type="button" onClick={onAddClick}>
           Add
         </button>
