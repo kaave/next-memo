@@ -19,7 +19,7 @@ export type Props = {
   initialLocalCount: number;
 };
 
-const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
+const useSecondPageHooks = (initialLocalCount: number) => {
   const [localCount, setLocalCount] = useState(initialLocalCount);
   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
@@ -31,6 +31,28 @@ const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
   useInterval(() => {
     setLocalCount(state => state + 1);
   }, 1000);
+
+  return {
+    localCount,
+    showModal,
+    setShowModal,
+    storeState,
+    onAddClick,
+    onAsyncAddClick,
+    evenOrOdd,
+  };
+};
+
+const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
+  const {
+    localCount,
+    showModal,
+    setShowModal,
+    storeState,
+    onAddClick,
+    onAsyncAddClick,
+    evenOrOdd,
+  } = useSecondPageHooks(initialLocalCount);
 
   return (
     <DefaultLayout>

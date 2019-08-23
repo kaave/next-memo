@@ -51,7 +51,7 @@
 - File structure
   - [x] layouts
   - [x] components
-- [ ] custom hooks
+- [x] custom hooks
 - [x] image optimization
 - [x] redux
   - [x] with immer
