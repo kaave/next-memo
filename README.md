@@ -52,7 +52,7 @@
   - [x] layouts
   - [x] components
 - [ ] custom hooks
-- [ ] image optimization
+- [x] image optimization
 - [x] redux
   - [x] with immer
   - [x] re-ducks pattern
