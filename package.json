@@ -43,6 +43,7 @@
     "not dead"
   ],
   "dependencies": {
+    "@react-google-maps/api": "^1.6.0",
     "@zeit/next-bundle-analyzer": "^0.1.2",
     "@zeit/next-css": "^1.0.1",
     "axios": "^0.19.0",

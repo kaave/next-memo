@@ -1673,6 +1673,19 @@
     react-lifecycles-compat "^3.0.4"
     warning "^3.0.0"
 
+"@react-google-maps/api@^1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/api/-/api-1.6.0.tgz#8ff688d13e047fc3e18b44c606fd331b471db60f"
+  integrity sha512-KoLPyXwgtA814d6zk4uqt4g8LhZyPC42RC8A4L/5iobCiEqF+Cvq7MLNpquyoyouYxhT4ZYUrtC5PKsgvk/f1w==
+  dependencies:
+    "@react-google-maps/marker-clusterer" "1.6.0"
+    invariant "2.2.4"
+
+"@react-google-maps/marker-clusterer@1.6.0":
+  version "1.6.0"
+  resolved "https://registry.yarnpkg.com/@react-google-maps/marker-clusterer/-/marker-clusterer-1.6.0.tgz#2e04f7185ed2ff405f3d2179dfc22d8b99477a39"
+  integrity sha512-k4W7m55jvQZSK3uvPVA2u9HtuHh0JwwNJmII2QMEXDSMb7S+BHP0xM6rkRgY4ClF4jMt0t0qHt8WuXSGr+O5WQ==
+
 "@redux-saga/core@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@redux-saga/core/-/core-1.0.3.tgz#c29ec7ae3d7dfcbcb8dc93177f2b3edc798c5d85"
