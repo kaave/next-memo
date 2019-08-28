@@ -3,7 +3,7 @@ import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 import axios from 'axios';
 
-import User from '~/components/User';
+import User from '~/components/for-test/User';
 
 describe('User with react-testing-library', () => {
   let container: HTMLElement;

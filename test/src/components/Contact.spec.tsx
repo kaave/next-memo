@@ -4,10 +4,10 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
-import Contact from '~/components/Contact';
-import { Props as MapProps } from '~/components/Map';
+import Contact from '~/components/for-test/Contact';
+import { Props as MapProps } from '~/components/for-test/Map';
 
-jest.mock('~/components/Map', () => ({ center }: MapProps) => (
+jest.mock('~/components/for-test/Map', () => ({ center }: MapProps) => (
   <div data-testid="map">
     {center.lat}:{center.long}
   </div>

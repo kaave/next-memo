@@ -2,7 +2,7 @@ import React from 'react';
 import { render, unmountComponentAtNode } from 'react-dom';
 import { act } from 'react-dom/test-utils';
 
-import Hey from '~/components/Hey';
+import Hey from '~/components/for-test/Hey';
 
 describe('Hey with react-testing-library', () => {
   let container: HTMLElement;
