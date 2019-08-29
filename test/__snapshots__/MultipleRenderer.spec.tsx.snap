@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `
+<div>
+  App
+</div>
+`;
+
+exports[`Multiple renderer test 1`] = `
+<div>
+  App
+</div>
+`;
