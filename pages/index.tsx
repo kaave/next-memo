@@ -88,4 +88,4 @@ class HomePage extends React.Component<WithReduxProps, State> {
 export default connect(
   mapStateToProps,
   mapDispatchToProps,
-)(HomePage);
+)(HomePage); // eslint-disable-line react-redux/prefer-separate-component-file

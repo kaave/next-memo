@@ -8,8 +8,8 @@ async function verifyToken(token: string, validator?: (value: string | object) =
   try {
     const value = jwt.verify(token, Consts.sessionSeqretKey);
     return validator ? validator(value) : true;
-  } catch (e) {
-    console.error(e);
+  } catch (error) {
+    console.error(error);
     return false;
   }
 }

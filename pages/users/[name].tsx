@@ -23,7 +23,7 @@ const UsersNamePage: NextPage<Props> = ({ name }) => {
 
 UsersNamePage.getInitialProps = async ({ query }: NextPageContext): Promise<Props> => {
   const { name } = query;
-  return { name: name instanceof Array ? name[0] : name };
+  return { name: Array.isArray(name) ? name[0] : name };
 };
 
 export default UsersNamePage;

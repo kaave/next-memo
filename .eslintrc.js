@@ -2,6 +2,7 @@ module.exports = {
   extends: [
     'airbnb',
     'plugin:prettier/recommended',
+    'plugin:unicorn/recommended',
     'plugin:react-redux/recommended',
     'plugin:jest/recommended',
     'plugin:@typescript-eslint/recommended',
@@ -92,6 +93,13 @@ module.exports = {
         optionalDependencies: false,
       },
     ],
+
+    // 端折った名前を禁止するのは管理しづらいのでやめ
+    'unicorn/prevent-abbreviations': ['off'],
+    // ファイル名縛りは融通がきかないのでやめ
+    'unicorn/filename-case': ['off'],
+    // getElementByIdとかを一切禁止してquerySelectorオンリーにするのはやりすぎでは
+    'unicorn/prefer-query-selector': 'off',
 
     /*
      * react

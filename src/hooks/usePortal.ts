@@ -23,7 +23,7 @@ export function usePortal(id: string) {
     const existingParentElement = document.getElementById(id);
     const parentElement = existingParentElement || createRootElement(id);
     if (!existingParentElement) addRootElement(parentElement);
-    if (rootElementRef.current) parentElement.appendChild(rootElementRef.current);
+    if (rootElementRef.current) parentElement.append(rootElementRef.current);
 
     return () => {
       if (!rootElementRef.current) return;
