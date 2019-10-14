@@ -2,13 +2,12 @@
     "extends": ["config:base"],
     "timezone": "Asia/Tokyo",
     "labels": ["renovate"],
-    "schedule": ["on sunday"],
     "separateMinorPatch": true,
     "minor": { "groupName": "all dependencies" },
     "patch": { "automerge": true },
     "packageRules": [
         {
-            "packagePatterns": ["^typescript$"],
+            "packagePatterns": ["^(typescript|eslint|stylelint)$"],
             "enabled": false
         }
     ]
