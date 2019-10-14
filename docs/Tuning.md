@@ -29,7 +29,7 @@
 ### useMemo で再計算を防止
 
 ```ts
-const Component: React.FC = ({ users }) => {
+const Component: React.FC<{ users: { age: number }[] }> = ({ users }) => {
   const runEveryRender = users.filter(user => user.age <= 18);
   const runWhenProductsChanged = React.useMemo(() => users.filter(user => user.age <= 18), [products]);
 };
