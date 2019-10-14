@@ -54,7 +54,7 @@
 - [x] custom hooks
 - [x] image optimization
 - [x] redux
-  - [x] with immer
+  - [x] with immer (Update: [removed.](https://github.com/kaave/next-memo/compare/feature/remove-immer))
   - [x] re-ducks pattern
   - [ ] DDD and clean-architecture like architecture
 - async redux middleware
