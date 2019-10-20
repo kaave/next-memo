@@ -28,6 +28,7 @@ module.exports = (nextConfig = {}) => ({
         ],
       };
 
+      console.log(cssLoaderConfig(config, { ...cssLoaderConfigOptions, ...cssLoaderOptions }));
       config.module.rules.push({
         test: /\.scss$/,
         oneOf: [

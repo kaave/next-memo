@@ -1,0 +1,13 @@
+.parent {
+    display: inline-block;
+}
+
+.label {
+    font-size: 1.8rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.input:checked + .label {
+    font-weight: 700;
+}

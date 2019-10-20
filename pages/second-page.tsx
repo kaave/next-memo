@@ -12,6 +12,7 @@ import { useInterval } from '~/hooks/useInterval';
 import { getMeta, title } from '@/utils/meta';
 import Head from '~/components/Head';
 import Modal from '~/components/Modal';
+import TagList from '~/components/molecules/TagList';
 
 const wait = (msec: number) => new Promise(resolve => setTimeout(resolve, msec));
 
@@ -77,6 +78,7 @@ const SecondPage: NextPage<Props> = ({ initialLocalCount }) => {
           {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
           <a>Go Back</a>
         </Link>
+        <TagList />
         {showModal && <Modal>Modal!</Modal>}
       </div>
     </DefaultLayout>

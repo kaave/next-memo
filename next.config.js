@@ -14,6 +14,8 @@ const withSass = require('./tools/with-scss');
 
 dotenv.config();
 
+const isProduction = process.env.NODE_ENV === 'production';
+
 function webpack(config, options) {
   config.resolve = config.resolve || {};
   config.resolve.plugins = config.resolve.plugins || [];
@@ -35,7 +37,7 @@ const cssModulesOptions = {
   cssModules: true,
   cssLoaderOptions: {
     importLoaders: 1,
-    localIdentName: '[name]__[local]--[hash:base64:5]',
+    localIdentName: isProduction ? '[hash:base64]' : '[path][name]__[local]',
   },
   importer: packageImporter(),
 };
