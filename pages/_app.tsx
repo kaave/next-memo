@@ -1,5 +1,5 @@
 import React from 'react';
-import App, { Container, AppContext } from 'next/app';
+import App, { AppContext } from 'next/app';
 import { Provider } from 'react-redux';
 import withRedux from 'next-redux-wrapper';
 import { PageTransition } from 'next-page-transitions';
@@ -26,13 +26,11 @@ class ModifiedApp extends App<Props, State> {
     const { Component, pageProps, store, router } = this.props;
 
     return (
-      <Container>
-        <Provider store={store}>
-          <PageTransition timeout={300} classNames="page-transition">
-            <Component {...pageProps} key={router.route} />
-          </PageTransition>
-        </Provider>
-      </Container>
+      <Provider store={store}>
+        <PageTransition timeout={300} classNames="page-transition">
+          <Component {...pageProps} key={router.route} />
+        </PageTransition>
+      </Provider>
     );
   }
 }
