@@ -61,6 +61,8 @@
   - [x] redux-saga
   - [x] redux-thunk
   - [ ] redux-observable
+- [ ] Sentry
+  - [ ] with SourceMap
 
 ### backend
 
