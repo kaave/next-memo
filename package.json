@@ -128,7 +128,7 @@
     "imagemin-pngquant": "8.0.0",
     "jest": "24.9.0",
     "jest-environment-enzyme": "7.1.2",
-    "jest-enzyme": "7.1.0",
+    "jest-enzyme": "7.1.2",
     "lint-staged": "9.4.2",
     "next-optimized-images": "2.5.3",
     "nextjs-sitemap-generator": "0.3.2",
