@@ -12324,10 +12324,10 @@ next@9.1.2:
     webpack-hot-middleware "2.25.0"
     webpack-sources "1.4.3"
 
-nextjs-sitemap-generator@0.3.2:
-  version "0.3.2"
-  resolved "https://registry.yarnpkg.com/nextjs-sitemap-generator/-/nextjs-sitemap-generator-0.3.2.tgz#aa517cf1e12e6aa20575574d9aee1ce481f379cc"
-  integrity sha512-BgV+NxFoEMvrcd3qxYAAsPvkfB39UZu9Bkj3rBEf3m7Tg5aNHchtp9XAQeKb8oClIf6wWtIVF21grndtYuyB7g==
+nextjs-sitemap-generator@0.3.3:
+  version "0.3.3"
+  resolved "https://registry.yarnpkg.com/nextjs-sitemap-generator/-/nextjs-sitemap-generator-0.3.3.tgz#94482740b66936dacd90136447d942cd9fb11a0e"
+  integrity sha512-YOV7VOPaiXFPXVYPJC2Y1+0Yfsz3IXy4M0eSI+V6d6qg0apbT47vGjBq1XXWVApeEI9kC7ts0LN23Qk/EaSZOw==
   dependencies:
     date-fns "^1.30.1"
 
